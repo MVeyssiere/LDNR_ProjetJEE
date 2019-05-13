@@ -9,18 +9,20 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String droits;
 
     public User() {
     }
 
     @Override
     public String toString() {
-        return "User{" + "id_user=" + id_user + ", email=" + email + ", password=" + password + ", name=" + name + '}';
+        return "User{" + "id_user=" + id_user + ", email=" + email + ", password=" + password + ", name=" + name + ", droits=" + droits + '}';
     }
 
     public User(String password) {
         this.password = password;
     }
+
 
     public User(String name, String password) {
         this.name = name;
@@ -33,17 +35,19 @@ public class User {
     }
 
 
-    public User(Integer id_user, String email, String password, String name) {
+    public User(Integer id_user, String email, String password, String name, String droits) {
         this.id_user = id_user;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.droits = droits;
     }
 
-    public User(String email, String password, String name, Integer id_user) {
+    public User(String email, String password, String name, String droits, Integer id_user) {
         this.id_user = id_user;
         this.name = name;
         this.email = email;
+        this.droits = droits;
         this.password = password;
     }
 
@@ -85,4 +89,13 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getDroits() {
+        return droits;
+    }
+
+    public void setDroits(String droits) {
+        this.droits = droits;
+    }
+
 }

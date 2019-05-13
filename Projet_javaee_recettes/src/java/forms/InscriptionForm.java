@@ -124,6 +124,7 @@ public final class InscriptionForm {
             user.setEmail(mail);
             user.setName(name);
             user.setPassword(encryptThisString(pass));
+            user.setDroits("classique");
             daouser.create(user);
             result = "Succès de l'inscription";
         } else {
