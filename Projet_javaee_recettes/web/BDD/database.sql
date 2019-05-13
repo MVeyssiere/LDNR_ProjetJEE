@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 13 Mai 2019 à 08:58
+-- Généré le :  Lun 13 Mai 2019 à 09:05
 -- Version du serveur :  5.5.59-0+deb8u1
 -- Version de PHP :  5.6.33-0+deb8u1
 
@@ -62,7 +62,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `name` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
   `password` binary(40) NOT NULL,
-  `droits` varchar(40) NOT NULL
+  `droits` varchar(40) NOT NULL,
+  `FK_id_recetteVotee` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
