@@ -15,6 +15,9 @@ public class Recette extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String titreRecette = req.getParameter("titre");
+        Recette recette = new Recette();
+
         this.getServletContext().getRequestDispatcher(VUE).forward(req, resp);
     }
 

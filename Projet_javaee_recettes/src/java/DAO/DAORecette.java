@@ -136,5 +136,31 @@ public class DAORecette extends DAO<Recette> {
         return retObj;
     }
 
+    public Recette findByTitle(String titre) {
+        Recette retObj = null;
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM " + table + " WHERE titre=?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setString(1, titre);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.first()) {
+                retObj = new Recette(rs.getInt("id_recette"),
+                        titre,
+                        rs.getInt("votes_positifs"),
+                        rs.getInt("votes_negatifs"),
+                        rs.getString("ingredients"),
+                        rs.getString("description"),
+                        rs.getString("date")
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+    }
 
 }
