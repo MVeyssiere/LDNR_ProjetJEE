@@ -18,7 +18,30 @@ public class DAORecette extends DAO<Recette> {
 
     @Override
     public Recette find(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Recette retObj = null;
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM " + table + " WHERE id_recette=?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setInt(1, id);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.first()) {
+                retObj = new Recette(id,
+                        rs.getString("titre"),
+                        rs.getInt("votes_positifs"),
+                        rs.getInt("votes_negatifs"),
+                        rs.getString("ingredients"),
+                        rs.getString("description"),
+                        rs.getString("date")
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
     }
 
     @Override
@@ -47,12 +70,44 @@ public class DAORecette extends DAO<Recette> {
 
     @Override
     public void delete(Recette obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM " + table + " WHERE id_user=?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, obj.getId_recette());
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public Recette update(Recette obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Recette rtObj = null;
+        String sql = "UPDATE " + table + " SET "
+                + "titre = ?,"
+                + "votes_positifs = ?"
+                + "votes_negatifs = ?"
+                + "ingredients = ?"
+                + "description = ?"
+                + "date = ?"
+                + " WHERE id_recette = ?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, obj.getId_recette());
+            pstmt.setString(2, obj.getTitre());
+            pstmt.setInt(3, obj.getVotes_positifs());
+            pstmt.setInt(3, obj.getVotes_negatifs());
+            pstmt.setString(4, obj.getIngredients());
+            pstmt.setString(5, obj.getDescription());
+            pstmt.setString(6, obj.getDate());
+            pstmt.executeUpdate();
+            //réhydrate l'objet a partir de ces nouvelles données
+            rtObj = find(obj.getId_recette());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rtObj;
     }
 
     @Override
