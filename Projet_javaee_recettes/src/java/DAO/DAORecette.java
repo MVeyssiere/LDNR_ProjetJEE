@@ -39,7 +39,7 @@ public class DAORecette extends DAO<Recette> {
                 );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retObj;
     }
@@ -63,7 +63,7 @@ public class DAORecette extends DAO<Recette> {
                 rtObj = this.find(generatedKeys.getInt(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rtObj;
     }
@@ -76,7 +76,7 @@ public class DAORecette extends DAO<Recette> {
             pstmt.setInt(1, obj.getId_recette());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -105,7 +105,7 @@ public class DAORecette extends DAO<Recette> {
             rtObj = find(obj.getId_recette());
 
         } catch (SQLException ex) {
-            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rtObj;
     }
@@ -131,7 +131,7 @@ public class DAORecette extends DAO<Recette> {
                 ));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retObj;
     }
