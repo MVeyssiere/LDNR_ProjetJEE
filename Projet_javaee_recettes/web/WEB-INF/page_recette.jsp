@@ -10,14 +10,14 @@
     <head>
         <meta charset="utf-8" />
         <title>Recettes</title>
-        <link type="text/css" rel="stylesheet" href="inc/recette.css" />
+        <link type="text/css" rel="stylesheet" href="<c:url value="inc/recette.css"/>" />
     </head>
     <body>
         <%-- <c:import url="header.jsp"/> --%>
         
         <%--  <c:out value="${recette.titre}" --%>
         
-        <h1>titre recette</h1>
+        <h1>titre recette <c:out value="${recette.titre}"/> </h1>
         <p>date</p>
         
         <p> ingredients recette</p>
@@ -26,6 +26,6 @@
         <p>Nombre de votes positifs</p>
         <p>Nombre de votes négatifs</p>
             
-        <c:import url="WEB-INF/footer.jsp"/>
+        <c:import url="footer.jsp"/>
     </body>
 </html>
