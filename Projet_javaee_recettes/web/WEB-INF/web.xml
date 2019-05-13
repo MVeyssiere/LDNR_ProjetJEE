@@ -4,6 +4,9 @@
     <session-config>
         <session-timeout>1</session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     
     <!-- Configuration de l'inclusion systématique de la bibliothèque JSTL core 
     et de l'encodage des pages JSP en UTF8 -->
@@ -44,6 +47,15 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     
+        <!-- mapping connexion -->
+    <servlet>
+        <servlet-name>recette</servlet-name>
+        <servlet-class>servlets.Recette</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>recette</servlet-name>
+        <url-pattern>/recette</url-pattern>
+    </servlet-mapping>
      
 
 </web-app>

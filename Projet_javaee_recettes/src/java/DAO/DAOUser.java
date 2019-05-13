@@ -84,11 +84,11 @@ public class DAOUser extends DAO<User> {
                 + " WHERE id_user = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, obj.getId_user());
-            pstmt.setString(2, obj.getName());
-            pstmt.setString(3, obj.getEmail());
-            pstmt.setString(4, obj.getPassword());
-            pstmt.setString(5, obj.getDroits());
+            pstmt.setString(1, obj.getName());
+            pstmt.setString(2, obj.getEmail());
+            pstmt.setString(3, obj.getPassword());
+            pstmt.setString(4, obj.getDroits());
+            pstmt.setInt(5, obj.getId_user());
             pstmt.executeUpdate();
             //réhydrate l'objet a partir de ces nouvelles données
             rtObj = find(obj.getId_user());
