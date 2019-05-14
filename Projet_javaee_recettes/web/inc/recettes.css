@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14 mai 2019, 08:22:33
+    Author     : stagldnr
+*/
+
+body {
+color:black;
+background-color:white;
+background-image:url("ville.jpg");
+}
+
+
+
+
+p {
+  padding: 20px;
+  background: yellow;
+  border: 2px solid red;
+  width: 500px;
+  height: 400px;
+  position:relative;
+}
+
+#titres
+{
+     display: flex;
+     padding: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    position:relative;
+}
+#twitchContent
+{
+     display: flex;
+     padding: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    position:relative;
+}
+
+
+#dimension1 {
+  padding: 20px;
+  background: grey;
+  border: 2px solid red;
+  width: 200px;
+  height: 400px;
+  position:relative;
+}
+
+
+
+#dimension2 {
+  padding: 20px;
+  background: grey;
+  border: 2px solid red;
+  width: 300px;
+  height: 500px;
+  position:relative;
+}
+
+
+
+
+#adapt
+{
+     display: flex;
+     padding: 10px;
+      
+}
+label {
+  padding: 20px;
+  background: greenyellow;
+  border: 2px solid red;
+  width: 30px;
+  height: 20px;
+  float: right;
+  position:relative;
+}
