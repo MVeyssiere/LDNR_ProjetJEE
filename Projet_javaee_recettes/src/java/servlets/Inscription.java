@@ -1,6 +1,5 @@
 package servlets;
 
-import DAO.DAOUser;
 import beans.User;
 import forms.InscriptionForm;
 import java.io.IOException;
@@ -31,7 +30,6 @@ public class Inscription extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DAOUser daouser = new DAOUser();
 
         /* Affichage de la page d'inscription */
         this.getServletContext()

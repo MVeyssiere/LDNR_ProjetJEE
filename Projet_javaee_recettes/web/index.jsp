@@ -10,27 +10,18 @@
     <head>
         <title>Accueil</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" defer src="JS/index.js"></script> 
-        <link  rel="stylesheet" type="text/css" href="inc/accueil.css"> 
-
+        <meta name="viewport" content="width=device-width, initial-
+              scale=1.0">
     </head>
-
-
     <body>
-
         <nav>
-            <a href="formulaire">Formulaire</a>
+            <a href="<c:url value="/inscription"/>">Inscription</a>
+            <a href="<c:url value="/connection"/>">Connexion</a>
+            <a href="<c:url value="/logout"/>">Deconnexion</a>
+
+
+            <a href="<c:url value="/recette?titre=SauceTomate"/>">Sauce Tomate</a>
         </nav>
-        
-        <p>Julien ok</p>
-        <div id="conteneur">
-            <div id="meilleur" >
-                <h1>Les meilleurs recettes du moment</h1>
-            </div>
-            <div id="derniere" >
-                <h1>Les dernieres recettes</h1>
-            </div>
-        </div>
+        <c:import url="/WEB-INF/footer.jsp"/>
     </body>
 </html>

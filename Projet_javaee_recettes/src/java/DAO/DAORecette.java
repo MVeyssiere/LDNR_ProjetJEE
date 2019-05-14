@@ -70,7 +70,7 @@ public class DAORecette extends DAO<Recette> {
 
     @Override
     public void delete(Recette obj) {
-        String sql = "DELETE FROM " + table + " WHERE id_user=?";
+        String sql = "DELETE FROM " + table + " WHERE id_recette=?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1, obj.getId_recette());
@@ -139,14 +139,14 @@ public class DAORecette extends DAO<Recette> {
     public Recette findByTitle(String titre) {
         Recette retObj = null;
         // faut faire attention aux espaces qui doivent entouré le nom de la table
-        String sql = "SELECT * FROM " + table + " WHERE titre=?";
+        String sql = "SELECT * FROM recette WHERE titre = ?";
+        System.out.println(sql);
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             // permet de trouver dans la base de données tous les lignes ayant l'id
             pstmt.setString(1, titre);
             // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
             ResultSet rs = pstmt.executeQuery();
-
             if (rs.first()) {
                 retObj = new Recette(rs.getInt("id_recette"),
                         titre,
@@ -156,6 +156,12 @@ public class DAORecette extends DAO<Recette> {
                         rs.getString("description"),
                         rs.getString("date")
                 );
+                System.out.println(retObj.getTitre());
+//                retObj = new Recette(titre,
+//                        rs.getString("description")
+//                );
+//                retObj = new Recette("SauceTomate");
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
