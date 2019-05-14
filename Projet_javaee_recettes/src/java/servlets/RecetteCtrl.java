@@ -28,7 +28,6 @@ public class RecetteCtrl extends HttpServlet {
         recette = rechercheRecette.RecetteParTitre(req);
 //        req.setAttribute("titre", rechercheRecette.RecetteParTitre(req));
 
-//        req.setAttribute("titre", recette.getTitre());
         req.setAttribute("recette", recette);
         this.getServletContext().getRequestDispatcher(VUE).forward(req, resp);
     }

@@ -82,9 +82,13 @@ public class Recette {
         this.date = date;
     }
 
-    public Recette(String titre, String description) {
+    public Recette(String titre, String ingredients, String description, String date) {
         this.titre = titre;
+        this.ingredients = ingredients;
         this.description = description;
+        this.date = date;
+        this.votes_positifs = 0;
+        this.votes_negatifs = 0;
     }
 
     public Recette(String titre) {
