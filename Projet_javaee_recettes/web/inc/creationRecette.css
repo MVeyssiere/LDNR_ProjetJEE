@@ -1,0 +1,17 @@
+body {
+  background: url('https://images.radio-canada.ca/q_auto,w_1600/v1/ici-info/16x9/preparation-repas-alimentation-cuisine.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+#contenu{
+    background-color: rgba(255,255,230, 0.5);
+    background-size: 40%;
+}
+
+label{
+    color: white;
+    /*font: 30 35vmin/50vh cookie, cursive;*/
+    mix-blend-mode: difference
+}
