@@ -1,4 +1,4 @@
-<%-- 
+a<%-- 
     Document   : page_recette
     Created on : 13 mai 2019, 11:08:57
     Author     : Marine Veyssiere
@@ -24,8 +24,8 @@
         <p> ingredients recette <c:out value="${recette.ingredients}"/> </p>
         <p>description recette <c:out value="${recette.description}"/> </p>
         
-        <p>Nombre de votes positifs</p>
-        <p>Nombre de votes négatifs</p>
+        <p>Nombre de votes positifs <c:out value="${recette.votes_positifs}"/></p>
+        <p>Nombre de votes négatifs  <c:out value="${recette.votes_negatifs}"/></p>
             
         <c:import url="footer.jsp"/>
     </body>

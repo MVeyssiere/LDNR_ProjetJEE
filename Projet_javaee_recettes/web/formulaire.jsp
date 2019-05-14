@@ -1,17 +1,40 @@
 <%-- 
-    Document   : inscription
-    Created on : 8 mai 2019, 12:15:40
-    Author     : Herbert Caffarel <herbert.caffarel@cicef.pro>
+    Document   : index
+    Created on : 9 mai 2019, 15:49:56
+    Author     : Marine Veyssiere
 --%>
-
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Inscription</title>
-        <link type="text/css" rel="stylesheet" href="<c:url value="/inc/form.css"/>" />
-    </head>
-    <body>
+<head>
+<title>Accueil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+
+<link  rel="stylesheet" type="text/css" href="inc/form.css">
+</head>
+<body>
+
+    <form  method="post" action="connection">
+            <fieldset>     
+                
+                <legend>Connexion</legend>
+                <label for="email">Adresse email <span class="requis">*</span></label>
+                <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" size="20" maxlength="60" />
+                <span class="error">${form.errors['email']}</span>
+                <br /><label for="password">Mot de passe <span class="requis">*</span></label>
+                <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
+                <span class="error">${form.errors['password']}</span>
+                <br /><input type="submit" value="Connexion" class="noLabel" />
+                <p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>
+            </fieldset>  
+            <%-- Vérification de la présence d'un objet utilisateur en session --%>
+            <%--
+            <c:if test="${!empty sessionScope.sessionUtilisateur}">
+                <p class="success">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
+            </c:if> --%>
+        </form>
+   
+        
         <form method="post" action="inscription">
             <fieldset>
                 <legend>Inscription</legend>
@@ -37,7 +60,9 @@
                 <p>Les champs marqués d'un <span class="mandatory">*</span> sont obligatoires.</p>
                 <p class="${(empty form.errors) ? 'success' : 'error'}"> ${form.result} </p>
             </fieldset>
+            
         </form>
-            <c:import url="footer.jsp"/>
-    </body>
+            <input type=button onclick=window.location.href='index.jsp'; value="Visiteur" />
+
+</body>
 </html>
