@@ -12,10 +12,13 @@ scale=1.0">
 </head>
 <body>
 <nav>
-<a href="inscription">Inscription</a>
-<a href="connection">Connexion</a>
-<a href="logout">Deconnexion</a>
+<a href="<c:url value="/inscription"/>">Inscription</a>
+<a href="<c:url value="/connection"/>">Connexion</a>
+<a href="<c:url value="/logout"/>">Deconnexion</a>
+
+
+<a href="<c:url value="/recette?titre=SauceTomate"/>">Sauce Tomate</a>
 </nav>
-<c:import url="WEB-INF/footer.jsp"/>
+<c:import url="/WEB-INF/footer.jsp"/>
 </body>
 </html>
