@@ -15,3 +15,6 @@ label{
     /*font: 30 35vmin/50vh cookie, cursive;*/
     mix-blend-mode: difference
 }
+span{
+    color: red;
+}

@@ -51,4 +51,14 @@
         <servlet-name>recette</servlet-name>
         <url-pattern>/recette</url-pattern>
     </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>creationRecette</servlet-name>
+        <servlet-class>servlets.creationRecette</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>creationRecette</servlet-name>
+        <url-pattern>/creationRecette</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
