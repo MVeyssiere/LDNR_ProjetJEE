@@ -1,67 +1,88 @@
 <%-- 
-    Document   : index
-    Created on : 9 mai 2019, 15:49:56
-    Author     : Marine Veyssiere
+    Document   : index.jsp
+    Created on : 13 mai 2019, 14:51:21
+    Author     : stagldnr
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<head>
-<title>Accueil</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-
-scale=1.0">
-
-<link  rel="stylesheet" type="text/css" href="inc/form.css">
-</head>
-<body>
-
-    <form  method="post" action="connection">
-            <fieldset>     
+    <head>
+        <title>Accueil</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link  rel="stylesheet" type="text/css" href="inc/accueil.css"> 
+    </head>
+    <body>
+        <nav>
+            <a href="formulaire">Formulaire</a>
+            <p>Julien ok</p>
+            
+            
+            <div id="conteneur">
                 
-                <legend>Connexion</legend>
-                <label for="email">Adresse email <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" size="20" maxlength="60" />
-                <span class="error">${form.errors['email']}</span>
-                <br /><label for="password">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
-                <span class="error">${form.errors['password']}</span>
-                <br /><input type="submit" value="Connexion" class="noLabel" />
-                <p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>
-            </fieldset>  
-            <%-- Vérification de la présence d'un objet utilisateur en session --%>
-            <%--
-            <c:if test="${!empty sessionScope.sessionUtilisateur}">
-                <p class="success">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
-            </c:if> --%>
-        </form>
-   
+                <div id="meilleur">
+                    
+                    <h1>Les meilleurs recettes du moment</h1>
+                    <div class="recetteMeilleur">
+                        
+                        <img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg"
+                             width="290" height="200">
+                        <h3>Gateau</h3>
+                        <p>
+                            Et quoniam apud eos ut in capite mundi morborum acerbitates celsius dominantur, ad quos vel sedandos omnis professio medendi torpescit, excogitatum est adminiculum sospitale nequi amicum perferentem 
+                            similia videat, additumque est cautionibus paucis remedium aliud satis validum, ut famulos percontatum missos quem ad modum valeant noti hac aegritudine colligati, non ante recipiant domum quam lavacro purgaverint corpus. ita etiam alienis oculis visa metuitur labes.
+
+                            amicorum bene suadentium valeat auctoritas, eaque et adhibeatur ad monendum non modo aperte sed etiam acriter, si res postulabit, et adhibitae pareatur.
+                        </p>
+                        <a href="page_recette.jsp">Lire la suite...</a>
+                    </div>
+                    
+                    <div class="recetteMeilleur">
+                        
+                       <img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg"
+                             width="290" height="200">
+                        <h3>Gateau</h3>
+                        <p>
+                            Et quoniam apud eos ut in capite mundi morborum acerbitates celsius dominantur, ad quos vel sedandos omnis professio medendi torpescit, excogitatum est adminiculum sospitale nequi amicum perferentem 
+                            similia videat, additumque est cautionibus paucis remedium aliud satis validum, ut famulos percontatum missos quem ad modum valeant noti hac aegritudine colligati, non ante recipiant domum quam lavacro purgaverint corpus. ita etiam alienis oculis visa metuitur labes.
+
+                            amicorum bene suadentium valeat auctoritas, eaque et adhibeatur ad monendum non modo aperte sed etiam acriter, si res postulabit, et adhibitae pareatur.
+                        </p>
+                        <a href="page_recette.jsp">Lire la suite...</a>
+                        
+                    </div>
+                    
+                    <div class="recetteMeilleur">
+                        <img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg"
+                             width="290" height="200">
+                        <h3>Gateau</h3>
+                        <p>
+                            Et quoniam apud eos ut in capite mundi morborum acerbitates celsius dominantur, ad quos vel sedandos omnis professio medendi torpescit, excogitatum est adminiculum sospitale nequi amicum perferentem 
+                            similia videat, additumque est cautionibus paucis remedium aliud satis validum, ut famulos percontatum missos quem ad modum valeant noti hac aegritudine colligati, non ante recipiant domum quam lavacro purgaverint corpus. ita etiam alienis oculis visa metuitur labes.
+
+                            amicorum bene suadentium valeat auctoritas, eaque et adhibeatur ad monendum non modo aperte sed etiam acriter, si res postulabit, et adhibitae pareatur.
+                        </p>
+                        <a href="page_recette.jsp">Lire la suite...</a>
+                    </div>
+                    
+                    <div id="DerniereRecette">
+                        <div ></div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            
+        </nav>
         
-        <form method="post" action="inscription">
-            <fieldset>
-                <legend>Inscription</legend>
-                <p>Vous pouvez vous inscrire via ce formulaire.</p>
-                <label for="email">Adresse email <span class="mandatory">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${user.email}" />" size="20" maxlength="60" />
-                <span class =" error">${form.errors.email}</span>
-                
-                <br />
-                <label for="password">Mot de passe <span class="mandatory">*</span></label>
-                <input type="password" id="password" name="password" value="<c:out value="${user.password}" />" size="20" maxlength="20" />
-                <span class =" error">${form.errors.password}</span>
-                <br />
-                <label for="confirm">Confirmation <span class="mandatory">*</span></label>
-                <input type="password" id="confirm" name="confirm" value="" size="20" maxlength="20" />
-                <span class =" error">${form.errors.confirm}</span>
-                <br />
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" value="<c:out value = "${user.name}" />" size="20" maxlength="20" />
-                <span class =" error">${form.errors.name}</span>
-                <br />
-                <input type="submit" value="Inscription" class="noLabel" />
-                <p>Les champs marqués d'un <span class="mandatory">*</span> sont obligatoires.</p>
-                <p class="${(empty form.errors) ? 'success' : 'error'}"> ${form.result} </p>
-            </fieldset>
-        </form>
-   
+        
+        
+        
 
-</body>
+        
+    </body>
 </html>
