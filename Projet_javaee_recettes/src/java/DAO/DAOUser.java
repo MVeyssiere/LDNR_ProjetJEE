@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class DAOUser extends DAO<User> {
 
-    private final String table = "user";
+    private final String table = "utilisateur";
 
     @Override
     public User find(Integer id) {
@@ -125,7 +125,7 @@ public class DAOUser extends DAO<User> {
     }
 
     //verify if email already exist in database. For the user connection.
-    public boolean verifyEmail(String email) {
+  public boolean verifyEmail(String email) {
 
         boolean result = false;
         String sql = "SELECT * FROM " + table + " WHERE email=?";

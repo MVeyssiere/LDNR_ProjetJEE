@@ -49,7 +49,6 @@ public class ConnectionForm {
         }
 
         //System.out.println(daouser.verifyEmail(mail));
-
         try {
             validatePassword(pwd);
         } catch (Exception e) {
