@@ -13,7 +13,8 @@ import java.util.logging.Logger;
  * @author Marine V
  */
 public class DAOUser extends DAO<User> {
-    private final String table = "user";
+
+    private final String table = "utilisateur";
 
     @Override
     public User find(Integer id) {
@@ -42,12 +43,13 @@ public class DAOUser extends DAO<User> {
     public User create(User obj) {
 
         User rtObj = null;
-        String sql = "INSERT INTO " + table + " (name, email, password)" + " VALUES (?, ?, ?)";
+        String sql = "INSERT INTO " + table + " (name, email, password, droits)" + " VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getName());
             pstmt.setString(2, obj.getEmail());
             pstmt.setString(3, obj.getPassword());
+            pstmt.setString(4, obj.getDroits());
             pstmt.executeUpdate();
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
             if (generatedKeys.first()) {
@@ -78,13 +80,15 @@ public class DAOUser extends DAO<User> {
                 + "name = ?,"
                 + "email = ?"
                 + "password = ?"
+                + "droits = ?"
                 + " WHERE id_user = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, obj.getId_user());
-            pstmt.setString(2, obj.getName());
-            pstmt.setString(3, obj.getEmail());
-            pstmt.setString(4, obj.getPassword());
+            pstmt.setString(1, obj.getName());
+            pstmt.setString(2, obj.getEmail());
+            pstmt.setString(3, obj.getPassword());
+            pstmt.setString(4, obj.getDroits());
+            pstmt.setInt(5, obj.getId_user());
             pstmt.executeUpdate();
             //réhydrate l'objet a partir de ces nouvelles données
             rtObj = find(obj.getId_user());
@@ -110,7 +114,8 @@ public class DAOUser extends DAO<User> {
                 retObj.add(new User(rs.getInt("id_user"),
                         rs.getString("name"),
                         rs.getString("email"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getString("droits")
                 ));
             }
         } catch (SQLException ex) {
@@ -120,7 +125,7 @@ public class DAOUser extends DAO<User> {
     }
 
     //verify if email already exist in database. For the user connection.
-    public boolean verifyEmail(String email) {
+  public boolean verifyEmail(String email) {
 
         boolean result = false;
         String sql = "SELECT * FROM " + table + " WHERE email=?";
@@ -158,6 +163,7 @@ public class DAOUser extends DAO<User> {
                 retObj = new User(email,
                         rs.getString("password"),
                         rs.getString("name"),
+                        rs.getString("droits"),
                         rs.getInt("id_user")
                 );
             }

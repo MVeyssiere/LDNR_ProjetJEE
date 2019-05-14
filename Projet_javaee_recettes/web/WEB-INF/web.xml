@@ -4,16 +4,17 @@
     <session-config>
         <session-timeout>1</session-timeout>
     </session-config>
-    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     <!-- Configuration de l'inclusion systématique de la bibliothèque JSTL core 
     et de l'encodage des pages JSP en UTF8 -->
     <jsp-config>
-        <jsp-property-group> 
-            <url-pattern>*.jsp</url-pattern> 
-            <include-prelude>/WEB-INF/taglibs.jsp</include-prelude> 
-        </jsp-property-group> 
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+        </jsp-property-group>
     </jsp-config>
-
     <!-- Configuration du mapping des contrôleurs -->
     <servlet>
         <servlet-name>inscription</servlet-name>
@@ -23,7 +24,6 @@
         <servlet-name>inscription</servlet-name>
         <url-pattern>/inscription</url-pattern>
     </servlet-mapping>
-    
     <!-- mapping connexion -->
     <servlet>
         <servlet-name>connection</servlet-name>
@@ -33,7 +33,6 @@
         <servlet-name>connection</servlet-name>
         <url-pattern>/connection</url-pattern>
     </servlet-mapping>
-    
     <!-- mapping déconnexion -->
     <servlet>
         <servlet-name>logout</servlet-name>
@@ -43,5 +42,13 @@
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-
+    <!-- mapping connexion -->
+    <servlet>
+        <servlet-name>recette</servlet-name>
+        <servlet-class>servlets.RecetteCtrl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>recette</servlet-name>
+        <url-pattern>/recette</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -4,29 +4,38 @@
 */
 
 /* Général ---------------------------- */
+
+
 body, p, legend, label, input {
-    font: normal 8pt verdana, helvetica, sans-serif;
+    font: normal 12pt verdana, helvetica, sans-serif; 
 }
 
 fieldset {
     padding: 10px;
     border: 1px #0568CD solid;
+    width: 400px;
+    margin: 0px auto; 
 }
 
-legend {
-    font-weight: bold;
-    color: #0568CD;
+body{
+    text-align: center;
 }
-
+ 
 /* Forms ------------------------------- */
+
+form{
+    padding: 10px 0px 10px 0px ;
+}
+
+
 form label {
     float: left;
     width: 200px;
-    margin: 3px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
 }
 
 form input {
-    margin: 3px 3px 0px 0px;
+    margin: 10px 3px 0px 0px;
     border: 1px #999 solid;
 }
 
