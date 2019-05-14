@@ -17,7 +17,10 @@ fieldset {
     margin: 0px auto; 
 }
 
-
+body{
+    text-align: center;
+}
+ 
 /* Forms ------------------------------- */
 
 form{
