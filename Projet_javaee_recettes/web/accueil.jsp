@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Accueil</title>
-        <link rel="stylesheet" type="text/css" href="inc/accueil.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">  
+        <link rel="stylesheet" type="text/css" href="inc/accueil.css">        
         <script type="text/javascript" defer src="JS/accueil.js"></script>
     </head>
     <body>
-       
-        
+        <jsp:include page="header.html"/>
         <div id="meilleur">
             <h1>Les meilleurs recettes</h1>
             
@@ -23,5 +23,6 @@
         <div id="derniere">
              <h1>Les dernieres recettes</h1>
         </div>
+        <%--<jsp:include page="footer.html"/>--%>
     </body>
 </html>
