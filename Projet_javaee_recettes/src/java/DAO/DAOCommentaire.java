@@ -121,13 +121,40 @@ public class DAOCommentaire extends DAO<Commentaire> {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                retObj.add(new Commentaire(rs.getInt("id_recette"),
+                retObj.add(new Commentaire(rs.getInt("id_commentaire"),
                         rs.getString("titre"),
                         rs.getString("corps"),
                         rs.getString("signalement"),
                         rs.getString("date"),
                         rs.getInt("FK_id_user"),
                         rs.getInt("FK_id_recette")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOCommentaire.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+    }
+
+    public List<Commentaire> findAllForOneRecipe(Integer id_recette) {
+        List<Commentaire> retObj = new ArrayList<>(); // stockage de tous les commentaires d'une recette
+
+        String sql = "SELECT * FROM " + table + " WHERE FK_id_recette=?";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, id_recette);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                retObj.add(new Commentaire(rs.getInt("id_commentaire"),
+                        rs.getString("titre"),
+                        rs.getString("corps"),
+                        rs.getString("signalement"),
+                        rs.getString("date"),
+                        rs.getInt("FK_id_user"),
+                        id_recette
                 ));
             }
         } catch (SQLException ex) {
