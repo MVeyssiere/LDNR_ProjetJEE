@@ -18,11 +18,13 @@ function init(){
 
 function affichageTop(){
     var r ="";
-    for(var i = 1; i < 4 ; i++)
+    for(var i = 0; i < 3 ; i++)
     {
+        
+        //var y =  <c:out value="${recetteAll.get(i)}"/>
         r += '<div class="recetteMeilleur">';
         r += '<img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg" >';
-        r += '<h3>Gateau</h3>';
+        r += '<h3>coucou</h3>';
         r += '<p>';
         r += 'Et quoniam apud eos ut in capite mundi morborum acerbitates celsius dominantur, ad quos vel sedandos omnis professio medendi torpescit, excogitatum est adminiculum sospitale nequi amicum perferentem ';
         r +=  'similia videat, additumque est cautionibus paucis remedium aliud satis validum, ut famulos percontatum missos quem ad modum valeant noti hac aegritudine colligati, non ante recipiant domum quam lavacro purgaverint corpus. ita etiam alienis oculis visa metuitur labes.' ;
@@ -43,7 +45,7 @@ function affichageDerniere(){
     {
         s += '<div class="recetteDerniere" >';
         s += '<a href="page_recette.jsp"><img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg" ></a>';
-        s += '<h3>Gateau</h3>';
+        s += '<h3><c:out value="${recetteAll.get(0).titre}"/></h3>';
         s += '</div>' ;
         
     }
