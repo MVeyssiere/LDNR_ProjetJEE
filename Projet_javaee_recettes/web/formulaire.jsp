@@ -7,12 +7,19 @@
 <head>
 <title>Accueil</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-
-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">  
 <link  rel="stylesheet" type="text/css" href="inc/form.css">
 </head>
 <body>
+    <h1>Les meilleures recettes</h1>
+    <p>Pour accéder aux recettes, vous pouvez vous connecter, créer un compte ou entrer en tant que visiteur.</p><br/>
+    
+    <c:choose>
+        <c:when test="${!empty sessionScope.sessionUtilisateur}"><p class="success">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p></c:when>
+        <c:otherwise><p>Vous n'êtes pas connecté(e) </p></c:otherwise>
+    </c:choose>
+        <br/>
 
     <form  method="post" action="connection">
             <fieldset>     
@@ -41,8 +48,7 @@ scale=1.0">
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
                 <label for="email">Adresse email <span class="mandatory">*</span></label>
                 <input type="email" id="email" name="email" value="<c:out value="${user.email}" />" size="20" maxlength="60" />
-                <span class =" error">${form.errors.email}</span>
-                
+                <span class =" error">${form.errors.email}</span>                
                 <br />
                 <label for="password">Mot de passe <span class="mandatory">*</span></label>
                 <input type="password" id="password" name="password" value="<c:out value="${user.password}" />" size="20" maxlength="20" />
@@ -62,7 +68,7 @@ scale=1.0">
             </fieldset>
             
         </form>
-            <input type=button onclick=window.location.href='index.jsp'; value="Visiteur" />
+            <input type=button onclick=window.location.href='accueil.jsp'; value="Visiteur" />
 
 </body>
 </html>

@@ -15,8 +15,8 @@
         
     </head>
     <body>
-        <jsp:include page="header.html"/>
-         <div id="meilleur">
+        <jsp:include page="/WEB-INF/header.jsp"/>
+        <div id="meilleur">
             <h1>Les meilleurs recettes</h1>
             <c:forEach items='${requestScope.recetteTop}' var='recetteTop'>
                  

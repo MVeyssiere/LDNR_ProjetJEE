@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
  */
 public class Logout extends HttpServlet {
 
-    private static final String URL_REDIRECTION = "/index.jsp";
+    private static final String URL_REDIRECTION = "/formulaire.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
