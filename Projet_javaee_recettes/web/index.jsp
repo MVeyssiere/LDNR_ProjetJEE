@@ -19,9 +19,14 @@
             <a href="<c:url value="/connection"/>">Connexion</a>
             <a href="<c:url value="/logout"/>">Deconnexion</a>
 
+<%--<c:url value="/recette" var="url">
+  <c:param name="titre" value="Sauce tomate" />
+</c:url>--%>
 
-            <a href="<c:url value="/recette?titre=SauceTomate"/>">Sauce Tomate</a>
-        </nav>
-        <c:import url="/WEB-INF/footer.jsp"/>
-    </body>
+<!--<a href="${url}">Sauce tomate</a> -->
+
+<a href="<c:url value="/recette?titre=Sauce+tomate"/>">Sauce Tomate</a>
+</nav>
+<c:import url="/WEB-INF/footer.jsp"/>
+</body>
 </html>

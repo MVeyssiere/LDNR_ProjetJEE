@@ -52,8 +52,8 @@ public class DAORecette extends DAO<Recette> {
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getTitre());
-            pstmt.setInt(2, obj.getVotes_positifs());
-            pstmt.setInt(3, obj.getVotes_negatifs());
+            pstmt.setInt(2, 0);
+            pstmt.setInt(3, 0);
             pstmt.setString(4, obj.getIngredients());
             pstmt.setString(5, obj.getDescription());
             pstmt.setString(6, obj.getDate());
@@ -167,6 +167,27 @@ public class DAORecette extends DAO<Recette> {
             Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retObj;
+    }
+
+    //verify if email already exist in database. For the user connection.
+    public boolean verifyTitle(String email) {
+
+        boolean result = false;
+        String sql = "SELECT * FROM " + table + " WHERE titre=?";
+        System.out.println(sql);
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setString(1, email);
+            // cet ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            result = rs.first(); // return true if a row exist because an email already exist in . return false if not.
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
 }

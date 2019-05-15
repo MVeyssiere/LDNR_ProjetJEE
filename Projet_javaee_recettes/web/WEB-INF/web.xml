@@ -53,11 +53,12 @@
     </servlet-mapping>
     
      <servlet>
-        <servlet-name>recetteAll</servlet-name>
-        <servlet-class>servlets.RecetteAccueil</servlet-class>
+        <servlet-name>creationRecette</servlet-name>
+        <servlet-class>servlets.creationRecette</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>recetteAll</servlet-name>
-        <url-pattern>/accueil</url-pattern>
+        <servlet-name>creationRecette</servlet-name>
+        <url-pattern>/creationRecette</url-pattern>
     </servlet-mapping>
+    
 </web-app>
