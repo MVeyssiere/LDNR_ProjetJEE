@@ -44,15 +44,17 @@ public class RecetteAccueil extends HttpServlet {
 //        String titreRecette = req.getParameter("titre");
         RechercheRecette rechercheRecette = new RechercheRecette();
        
-         ArrayList<Recette> recetteAll = new ArrayList<>();
-        
+        ArrayList<Recette> recetteAll = new ArrayList<>();
+        ArrayList<Recette> recetteTop = new ArrayList<>();
         
         recetteAll = (ArrayList<Recette>) rechercheRecette.ToutesRecette();
+        recetteTop = (ArrayList<Recette>) rechercheRecette.TopRecette();
 //        req.setAttribute("titre", rechercheRecette.RecetteParTitre(req));
 
 //        req.setAttribute("titre", recette.getTitre());
         
         req.setAttribute("recetteAll", recetteAll);
+        req.setAttribute("recetteTop", recetteTop);
         this.getServletContext().getRequestDispatcher(VUE).forward(req, resp);
     }
 }

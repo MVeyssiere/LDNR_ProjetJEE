@@ -42,6 +42,20 @@ public class RechercheRecette {
         return recette;
 //        return titre;
     }
+    
+    public List<Recette> TopRecette() {
+//        String titre = request.getParameter("titre");
+       
+
+        DAORecette daorecette = new DAORecette();
+        
+        
+        ArrayList<Recette> recette = new ArrayList<>();
+        recette = (ArrayList<Recette>) daorecette.findTop();
+
+        return recette;
+//        return titre;
+    }
 
     // retourne null si le champ est vide ou null, ou sa valeur « trimée » sinon, ce qui permet de simplifier les tests.
     private static String getParamValue(HttpServletRequest request, String paramKey) {
