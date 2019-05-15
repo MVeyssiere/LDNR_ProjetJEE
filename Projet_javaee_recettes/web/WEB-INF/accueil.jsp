@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Accueil</title>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">  
-        <link rel="stylesheet" type="text/css" href="inc/accueil.css">        
-        
+        <link rel="stylesheet" type="text/css" href="inc/accueil.css">
+     
     </head>
     <body>
-        <jsp:include page="/WEB-INF/header.jsp"/>
+       
+        <p></p>
         <div id="meilleur">
             <h1>Les meilleurs recettes</h1>
             <c:forEach items='${requestScope.recetteTop}' var='recetteTop'>
@@ -41,7 +41,6 @@
                  </div>
              </c:forEach>
         </div>
-        
-        <%--<jsp:include page="footer.html"/>--%>
+        </div>
     </body>
 </html>

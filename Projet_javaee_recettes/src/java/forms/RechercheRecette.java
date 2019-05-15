@@ -2,6 +2,8 @@ package forms;
 
 import DAO.DAORecette;
 import beans.Recette;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -22,6 +24,34 @@ public class RechercheRecette {
         DAORecette daorecette = new DAORecette();
         System.out.println(titre);
         Recette recette = daorecette.findByTitle(titre);
+
+        return recette;
+//        return titre;
+    }
+    
+    public List<Recette> ToutesRecette() {
+//        String titre = request.getParameter("titre");
+       
+
+        DAORecette daorecette = new DAORecette();
+        
+        
+        ArrayList<Recette> recette = new ArrayList<>();
+        recette = (ArrayList<Recette>) daorecette.findAll();
+
+        return recette;
+//        return titre;
+    }
+    
+    public List<Recette> TopRecette() {
+//        String titre = request.getParameter("titre");
+       
+
+        DAORecette daorecette = new DAORecette();
+        
+        
+        ArrayList<Recette> recette = new ArrayList<>();
+        recette = (ArrayList<Recette>) daorecette.findTop();
 
         return recette;
 //        return titre;

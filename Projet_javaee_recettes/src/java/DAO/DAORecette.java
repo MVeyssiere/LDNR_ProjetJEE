@@ -116,6 +116,34 @@ public class DAORecette extends DAO<Recette> {
         ArrayList<Recette> retObj = new ArrayList<>();
         // faut faire attention aux espaces qui doivent entouré le nom de la table
         String sql = "SELECT * FROM " + table;
+        
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                retObj.add(new Recette(rs.getInt("id_recette"),
+                        rs.getString("titre"),
+                        rs.getInt("votes_positifs"),
+                        rs.getInt("votes_negatifs"),
+                        rs.getString("ingredients"),
+                        rs.getString("description"),
+                        rs.getDate("date")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+    }
+    
+   
+    public List<Recette> findTop() {
+        ArrayList<Recette> retObj = new ArrayList<>();
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        
+        String sql = "SELECT * FROM " + table + " ORDER BY 'votes_positifs' DESC LIMIT 3";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
