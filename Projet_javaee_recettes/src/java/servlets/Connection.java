@@ -1,8 +1,11 @@
 package servlets;
 
+import beans.Recette;
 import beans.User;
 import forms.ConnectionForm;
+import forms.RechercheRecette;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +20,7 @@ public class Connection extends HttpServlet {
     private static final String ATT_USER = "utilisateur";
     private static final String ATT_FORM = "form";
     private static final String ATT_SESSION_USER = "sessionUtilisateur";
-    private static final String VUE = "/accueil.jsp";
+    private static final String VUE = "/WEB-INF/accueil.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,6 +48,18 @@ public class Connection extends HttpServlet {
         /* Stockage du formulaire et du bean dans l'objet request */
         req.setAttribute(ATT_FORM, form);
         req.setAttribute(ATT_USER, user);
+
+        RechercheRecette rechercheRecette = new RechercheRecette();
+
+        ArrayList<Recette> recetteAll = new ArrayList<>();
+        ArrayList<Recette> recetteTop = new ArrayList<>();
+
+        recetteAll = (ArrayList<Recette>) rechercheRecette.ToutesRecette();
+        recetteTop = (ArrayList<Recette>) rechercheRecette.TopRecette();
+
+        req.setAttribute("recetteAll", recetteAll);
+        req.setAttribute("recetteTop", recetteTop);
+
         this.getServletContext().getRequestDispatcher(VUE).forward(req, resp);
     }
 

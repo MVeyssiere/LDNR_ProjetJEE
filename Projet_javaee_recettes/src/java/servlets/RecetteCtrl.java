@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RecetteCtrl extends HttpServlet {
 
-    private static final String VUE = "/WEB-INF/page_recette.jsp";
+    private static final String VUE = "/WEB-INF/recettes.jsp";
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
