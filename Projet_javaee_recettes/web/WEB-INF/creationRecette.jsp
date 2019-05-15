@@ -16,7 +16,7 @@
         <title>Création d'une recette</title>
     </head>
     <body>
-        <jsp:include page="../header.html"/>
+        <jsp:include page="header.jsp"/>
         <div class="row">
         <h1 class="text-info col-md-4 offset-md-4">Création d'une recette</h1>    
         

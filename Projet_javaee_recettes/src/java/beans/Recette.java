@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.Date;
+
 /**
  * @author Marine V
  */
@@ -11,7 +13,7 @@ public class Recette {
     private Integer votes_negatifs;
     private String ingredients;
     private String description;
-    private String date;
+    private Date date;
 
     public Integer getId_recette() {
         return id_recette;
@@ -61,18 +63,18 @@ public class Recette {
         this.description = description;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
     public Recette() {
     }
 
-    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description, String date) {
+    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description, Date date) {
         this.id_recette = id_recette;
         this.titre = titre;
         this.votes_positifs = votes_positifs;
@@ -82,7 +84,7 @@ public class Recette {
         this.date = date;
     }
 
-    public Recette(String titre, String ingredients, String description, String date) {
+    public Recette(String titre, String ingredients, String description, Date date) {
         this.titre = titre;
         this.ingredients = ingredients;
         this.description = description;

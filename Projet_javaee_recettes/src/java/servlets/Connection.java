@@ -17,7 +17,7 @@ public class Connection extends HttpServlet {
     private static final String ATT_USER = "utilisateur";
     private static final String ATT_FORM = "form";
     private static final String ATT_SESSION_USER = "sessionUtilisateur";
-    private static final String VUE = "/WEB-INF/connexion.jsp";
+    private static final String VUE = "/accueil.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -1,6 +1,7 @@
 package DAO;
 
 import beans.Recette;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,7 +36,7 @@ public class DAORecette extends DAO<Recette> {
                         rs.getInt("votes_negatifs"),
                         rs.getString("ingredients"),
                         rs.getString("description"),
-                        rs.getString("date")
+                        rs.getDate("date")
                 );
             }
         } catch (SQLException ex) {
@@ -56,7 +57,7 @@ public class DAORecette extends DAO<Recette> {
             pstmt.setInt(3, 0);
             pstmt.setString(4, obj.getIngredients());
             pstmt.setString(5, obj.getDescription());
-            pstmt.setString(6, obj.getDate());
+            pstmt.setDate(6, (Date) obj.getDate());
             pstmt.executeUpdate();
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
             if (generatedKeys.first()) {
@@ -99,7 +100,7 @@ public class DAORecette extends DAO<Recette> {
             pstmt.setInt(3, obj.getVotes_negatifs());
             pstmt.setString(4, obj.getIngredients());
             pstmt.setString(5, obj.getDescription());
-            pstmt.setString(6, obj.getDate());
+            pstmt.setDate(6, (Date) obj.getDate());
             pstmt.executeUpdate();
             //réhydrate l'objet a partir de ces nouvelles données
             rtObj = find(obj.getId_recette());
@@ -115,6 +116,7 @@ public class DAORecette extends DAO<Recette> {
         ArrayList<Recette> retObj = new ArrayList<>();
         // faut faire attention aux espaces qui doivent entouré le nom de la table
         String sql = "SELECT * FROM " + table;
+        
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
@@ -127,7 +129,34 @@ public class DAORecette extends DAO<Recette> {
                         rs.getInt("votes_negatifs"),
                         rs.getString("ingredients"),
                         rs.getString("description"),
-                        rs.getString("date")
+                        rs.getDate("date")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
+    }
+    
+   
+    public List<Recette> findTop() {
+        ArrayList<Recette> retObj = new ArrayList<>();
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        
+        String sql = "SELECT * FROM " + table + " ORDER BY 'votes_positifs' DESC LIMIT 3";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                retObj.add(new Recette(rs.getInt("id_recette"),
+                        rs.getString("titre"),
+                        rs.getInt("votes_positifs"),
+                        rs.getInt("votes_negatifs"),
+                        rs.getString("ingredients"),
+                        rs.getString("description"),
+                        rs.getDate("date")
                 ));
             }
         } catch (SQLException ex) {
@@ -154,7 +183,7 @@ public class DAORecette extends DAO<Recette> {
                         rs.getInt("votes_negatifs"),
                         rs.getString("ingredients"),
                         rs.getString("description"),
-                        rs.getString("date")
+                        rs.getDate("date")
                 );
                 System.out.println(retObj.getTitre());
 //                retObj = new Recette(titre,
