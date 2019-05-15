@@ -15,7 +15,7 @@
         <script type="text/javascript" defer src="JS/accueil.js"></script>
     </head>
     <body>
-        <jsp:include page="header.html"/>
+        <jsp:include page="/WEB-INF/header.jsp"/>
         <div id="meilleur">
             <h1>Les meilleurs recettes</h1>
             

@@ -16,6 +16,7 @@ public class ConnectionForm {
 
     private static final String EMAIL = "email";
     private static final String PASS = "password";
+    private static final String NAME = "name";
 
     private String result;
     private final Map<String, String> errors = new HashMap<>();
@@ -32,6 +33,7 @@ public class ConnectionForm {
 
         String mail = getParamValue(request, EMAIL);
         String pwd = getParamValue(request, PASS);
+        String name = getParamValue(request, NAME);
 
         User user = new User();
 
@@ -59,6 +61,7 @@ public class ConnectionForm {
         System.out.println("password from db: " + daouser.findFromEmail(mail).getPassword());
         if (encryptThisString(pwd).matches(daouser.findFromEmail(mail).getPassword())) {
             user.setPassword(pwd);
+            user.setName(daouser.findFromEmail(mail).getName());
         } else {
             setErrors(PASS, "Mot de passe incorrect. Veuillez le ressaisir.");
         }

@@ -4,7 +4,6 @@ import DAO.DAORecette;
 import beans.Recette;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -68,11 +67,11 @@ public class creationRecetteForm {
             setErrors(RECETTE, e.getMessage());
         }
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Calendar cal = Calendar.getInstance();
-        String dateDuJour = dateFormat.format(cal.getTime());
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date dateDuJour = new java.sql.Date(utilDate.getTime());
         System.out.println("date du jour: " + dateDuJour);
+
         /* Initialisation du résultat global de la validation. */
         if (errors.isEmpty() && !daorecette.verifyTitle(titre)) {
             newRecette.setTitre(titre);
