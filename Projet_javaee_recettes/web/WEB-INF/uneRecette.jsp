@@ -26,15 +26,20 @@
             <p id = "dimension2"> ${recette.description} </p>    
         </div>
         
-        <c:forEach items="${requestScope.commentaire}" var="comm">
-           <p>${comm.titre}</p>
-           <p>${comm.corps}</p>
-        </c:forEach>
-
         <div class="panel-heading">
             <button type="button" class="btn btn-primary">BON</button>
             <button type="button" class="btn btn-primary">PAS BON</button>
         </div>
+        
+        <h2 class="text-secondary offset-md-2">Commentaires</h2>
+        <c:forEach items="${requestScope.commentaire}" var="comm">
+            <div class="border border-primary bg-light comments">
+                <p class="text-dark border border-primary bg-light titreComment">id_utilisateur: ${comm.FK_id_user}</p>
+                <p class="text-dark border border-primary bg-light titreComment">${comm.titre}</p>
+                <p class="text-dark border border-primary bg-light corpsComment">${comm.corps}</p>
+            </div>
+        </c:forEach>
+
         <label><c:out value = "${recette.date}"/></label>
     </body>
 </html>

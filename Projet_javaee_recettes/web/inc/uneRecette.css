@@ -35,6 +35,7 @@ p {
     flex-direction: row;
     justify-content: space-around;
     position:relative;
+    margin-left: 120px;
 }
 #twitchContent
 {
@@ -55,17 +56,19 @@ p {
   position:relative;
   word-wrap: break-word;
   overflow: auto;
+  margin-left: 100px;
 }
 
 #dimension2 {
   padding: 30px;
   background: wheat;
   border: 2px solid red;
-  width: 670px;
+  width: 500px;
   height: auto;
   position:relative;
   word-wrap: break-word;
   overflorw: auto;
+  text-align: justify;
 }
 
 #adapt
@@ -96,4 +99,29 @@ label {
   position:relative;
   overflow: hidden; /* les dépassements seront masqués */
   
+}
+
+.panel-heading{    
+    margin-left: 220px;
+    padding-bottom: 40px;
+}
+
+.comments{
+    margin: 10px;
+    width: 600px;
+    margin-left: 220px;
+}
+
+.titreComment{
+    height: 50px;
+    width: auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.corpsComment{
+       height: auto;
+    padding: 10px;
+    width: auto;
+    margin-bottom: 50px;
 }
