@@ -115,20 +115,16 @@ public final class InscriptionForm {
             setErrors(USERNAME, ex.getMessage());
         }
 
-        // autre méthode: findAll puis parcourir les mails de la liste et regarder si y a un match
-        //System.out.println(daouser.verifyEmail(mail));
-        System.out.println(errors.toString());
-
         //si il n'y a pas eu d'erreur créer le user dans la  bdd
         if (errors.isEmpty()) {
             user.setEmail(mail);
             user.setName(name);
             user.setPassword(encryptThisString(pass));
-            user.setDroits("classique");
+            user.setDroits("user");
             daouser.create(user);
             result = "Succès de l'inscription";
         } else {
-            result = errors.toString() + " Echec de l'inscription";
+            result = " Echec de l'inscription";
         }
 
         return user;
