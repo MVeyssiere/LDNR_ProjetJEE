@@ -51,13 +51,13 @@ public class Connection extends HttpServlet {
 
         RechercheRecette rechercheRecette = new RechercheRecette();
 
-        ArrayList<Recette> recetteAll = new ArrayList<>();
+        ArrayList<Recette> recetteLast = new ArrayList<>();
         ArrayList<Recette> recetteTop = new ArrayList<>();
 
-        recetteAll = (ArrayList<Recette>) rechercheRecette.ToutesRecette();
+        recetteLast = (ArrayList<Recette>) rechercheRecette.DerniereRecette();
         recetteTop = (ArrayList<Recette>) rechercheRecette.TopRecette();
 
-        req.setAttribute("recetteAll", recetteAll);
+        req.setAttribute("recetteLast", recetteLast);
         req.setAttribute("recetteTop", recetteTop);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(req, resp);
