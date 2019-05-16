@@ -22,7 +22,7 @@
                  <div class="recetteMeilleur" >
                         <a href="${pageContext.request.contextPath}/uneRecette?id_recette=<c:out value="${recetteTop.id_recette}"/>"><img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg" ></a>
                         <h3><c:out value="${recetteTop.titre}"/></h3>
-                        <p><c:out value="${recetteTop.description}"/></p>                 
+                        <p><c:out value="${recetteTop.description}"/></p>
                  </div>
              </c:forEach>          
         </div>

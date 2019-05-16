@@ -18,7 +18,7 @@
     <body>
         <jsp:include page="header.jsp"/>
         <div class="row">
-        <h1 class="text-info col-md-4 offset-md-4">Création d'une recette</h1>    
+        <h1 class="text-info col-md-4 offset-md-4 well">Création d'une recette</h1>    
         
         <div class="${(empty form.errors) ? 'p-3 mb-2 bg-success text-white' : 'p-3 mb-2 bg-danger text-white'}"> ${form.result} </div>
         <%--<p class="${(empty form.errors) ? 'success' : 'error'}"> ${form.result} </p>--%>
