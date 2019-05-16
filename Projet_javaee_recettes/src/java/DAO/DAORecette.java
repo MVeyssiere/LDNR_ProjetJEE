@@ -146,7 +146,7 @@ public class DAORecette extends DAO<Recette> {
         ArrayList<Recette> retObj = new ArrayList<>();
         // faut faire attention aux espaces qui doivent entourer le nom de la table
         
-        String sql = "SELECT * FROM " + table + " ORDER BY 'votes_positifs' DESC LIMIT 3";
+        String sql = "SELECT * FROM " + table + " ORDER BY votes_positifs DESC LIMIT 3";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
@@ -173,7 +173,7 @@ public class DAORecette extends DAO<Recette> {
         ArrayList<Recette> retObj = new ArrayList<>();
         // faut faire attention aux espaces qui doivent entouré le nom de la table
         
-        String sql = "SELECT * FROM " + table + " ORDER BY 'date' DESC LIMIT 10";
+        String sql = "SELECT * FROM " + table + " ORDER BY date DESC LIMIT 9";
     
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);

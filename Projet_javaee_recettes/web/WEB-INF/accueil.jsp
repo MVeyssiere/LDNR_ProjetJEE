@@ -20,22 +20,23 @@
             <h1>Les meilleurs recettes</h1>
             <c:forEach items='${requestScope.recetteTop}' var='recetteTop'>
                  <div class="recetteMeilleur" >
-                        <a href="${pageContext.request.contextPath}/uneRecette?id_recette=<c:out value="${recetteTop.id_recette}"/>"><img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg" ></a>
+                        <a href="${pageContext.request.contextPath}/uneRecette?id_recette=<c:out value="${recetteTop.id_recette}"/>"><img src="<c:out value="${recetteTop.image}"/>" ></a>
                         <h3><c:out value="${recetteTop.titre}"/></h3>
-                        <p><c:out value="${recetteTop.description}"/></p>
+                        <p><c:out value="${recetteTop.description}"/></p> 
+                        <a href="${pageContext.request.contextPath}/uneRecette?id_recette=<c:out value="${recetteTop.id_recette}"/>">lire la suite...</a>
+                        
                  </div>
              </c:forEach>          
         </div>
-        
-        <h1>RAETFDH</h1>
         <div id="derniere">
              <h1>Les dernieres recettes</h1>
              
              <c:forEach items='${requestScope.recetteLast}' var='recetteLast'>
                  
                  <div class="recetteDerniere" >
-                 <a href="page_recette.jsp"><img src="<c:out value="${recetteLast.image}"/>" ></a>
-                 <h3><c:out value="${recetteLast.titre}"/></h3>
+                 <a href="${pageContext.request.contextPath}/uneRecette?id_recette=<c:out value="${recetteLast.id_recette}"/>"><img src="<c:out value="${recetteLast.image}"/>" ></a>
+                 <h4><c:out value="${recetteLast.titre}"/></h4>
+                
                  </div>
              </c:forEach>
         </div>
