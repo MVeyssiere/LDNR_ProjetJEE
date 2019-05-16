@@ -26,9 +26,16 @@
         <form method="post" action="creationRecette">
         <div class="row">
             <section class="form-group col-md-4 offset-md-4">
-                <label contentEditable role='textbox' aria-multiline='true' for="titre" class="well">Titre </label>
+                <label for="titre" class="well">Titre </label>
                 <input id="titre" name = "titre" type="text" class="form-control" value="<c:out value = "${createRecette.titre}" />">
                 <span class="error">${form.errors['titre']}</span>
+            </section>
+        </div>
+        <div class="row">
+            <section class="form-group col-md-4 offset-md-4">
+                <label for="image" class="well">Image (url) </label>
+                <input id="image" name = "image" type="text" class="form-control" value="<c:out value = "${createRecette.image}" />">
+                <span class="error">${form.errors['image']}</span>
             </section>
         </div>
         <div class="row">

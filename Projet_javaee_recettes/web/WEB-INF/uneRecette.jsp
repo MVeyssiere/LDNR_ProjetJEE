@@ -22,7 +22,7 @@
             <h2 class="text-secondary col-md-6">Description</h2>   
         </div>
         <div id="twitchContent">            
-            <p class="text-dark" id = "dimension1"> <c:out value = "${recette.ingredients}"/> </p>
+            <p id = "dimension1"> ${recette.ingredients}" </p>
             <p id = "dimension2"> ${recette.description} </p>    
         </div>
         
