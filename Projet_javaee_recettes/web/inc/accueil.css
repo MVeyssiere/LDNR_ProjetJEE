@@ -14,6 +14,11 @@ body, p, legend, label, input {
 }
 
 body{
+    background: url('https://previews.123rf.com/images/seregam/seregam1210/seregam121000065/15585520-arri%C3%A8re-plan-de-recettes-de-cuisine-et-des-%C3%A9pices-sur-table-en-bois.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     margin: 0 auto;
     width: 1200px;
     text-align: center;
@@ -22,8 +27,8 @@ body{
 #derniere{
     margin: 0 auto;
     width: 1000px;
-    background-color: blue;
-    height: 1500px;
+    height: 1000px;
+    padding-left: 120px;
 }
 
 .recetteDerniere:hover{
@@ -35,15 +40,15 @@ body{
     margin: 0 auto;
     width: 1000px;
     height: 700px;
-     
+    padding-left: 30px;
 }
 
 .recetteMeilleur{
     width: 300px;
     height: 500px;
     margin-left: 20px;
-    background-color: red;
-    border: 1px #0568CD solid;
+    border: 5px brown solid;
+    border-radius: 5px;
     float: left;
 }
 .recetteMeilleur p{
@@ -60,7 +65,8 @@ body{
 
 .recetteMeilleur img{
     margin-top: 5px;
-    width: 290px;
+    border-radius: 5px;
+    width: 280px;
     height: 200px;
 }
 
@@ -71,20 +77,18 @@ body{
     position: relative;
     width: 250px;
     height: 200px;
-
-    margin: 20px 0 0 20px;
+    
+    margin: 40px 0 0 20px;
     border: 5px black solid;
     border-radius: 5px;
     
 }
 
 
-.recetteDerniere h3{
+.recetteDerniere h4{
 
     margin-top: 10px;
-    position: absolute;
-    top: 0px;
-    left: 92px;
+    
     z-index: 2;
 }
 
