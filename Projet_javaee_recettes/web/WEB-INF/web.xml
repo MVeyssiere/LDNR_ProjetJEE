@@ -61,7 +61,7 @@
         <url-pattern>/creationRecette</url-pattern>
     </servlet-mapping>
     
-         <servlet>
+    <servlet>
         <servlet-name>uneRecette</servlet-name>
         <servlet-class>servlets.recetteEtCommentaires</servlet-class>
     </servlet>
@@ -69,4 +69,23 @@
         <servlet-name>uneRecette</servlet-name>
         <url-pattern>/uneRecette</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>allRecettes</servlet-name>
+        <servlet-class>servlets.allRecettes</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allRecettes</servlet-name>
+        <url-pattern>/allRecettes</url-pattern>
+    </servlet-mapping>
+<!--    
+    <servlet>
+        <servlet-name>accueil</servlet-name>
+        <servlet-class>servlets.RecetteAccueil</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>accueil</servlet-name>
+        <url-pattern>/accueil</url-pattern>
+    </servlet-mapping>
+    -->
 </web-app>

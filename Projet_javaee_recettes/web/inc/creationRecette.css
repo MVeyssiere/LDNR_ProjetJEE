@@ -11,10 +11,14 @@ body {
 }
 
 label{
-    color: white;
+    color: black;
     /*font: 30 35vmin/50vh cookie, cursive;*/
-    mix-blend-mode: difference
+    /*mix-blend-mode: difference*/
 }
 span{
     color: red;
+}
+
+.well {
+   background-color: rgba(245, 245, 245, 0.8);
 }
