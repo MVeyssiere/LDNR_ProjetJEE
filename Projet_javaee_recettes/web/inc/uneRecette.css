@@ -17,15 +17,9 @@ body {
   color: black;
 }
 
-
-p {
-  padding: 20px;
-  background: yellow;
-  border: 2px solid red;
-  width: 500px;
-  height: 400px;
-  position:relative;
-  overflow: hidden; /* les dépassements seront masqués */
+.footer{
+     font: normal 12pt verdana, helvetica, sans-serif;
+    text-align: center;
 }
 
 #titres

@@ -24,6 +24,10 @@ body{
     text-align: center;
 }
 
+h1{
+    padding: 20px;
+}
+
 #derniere{
     margin: 0 auto;
     width: 1000px;
