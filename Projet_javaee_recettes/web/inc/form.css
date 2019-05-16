@@ -40,7 +40,9 @@ form input {
 }
 
 form input.noLabel {
-    margin-left: 200px;
+    float:left;
+    margin-left: 50px;
+    
 }
 
 form .mandatory {
@@ -52,5 +54,9 @@ form .error{
 }
 
 form .success{
+    padding-top: 10px;
+    float: left;
     color: #090;
+    width: 400px;
+    text-align: center;
 }

@@ -31,8 +31,9 @@
                 <br /><label for="password">Mot de passe <span class="requis">*</span></label>
                 <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
                 <span class="error">${form.errors['password']}</span>
-                <br /><input type="submit" value="Connexion" class="noLabel" />
-                <p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>
+                <br /><input type="submit" value="désinscription" name="désinscription" class="noLabel" />
+                <input type="submit" value="Connexion" name="Connexion" class="noLabel" />
+                <br/><p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>
             </fieldset>  
             <%-- Vérification de la présence d'un objet utilisateur en session --%>
             <%--
