@@ -31,11 +31,11 @@
         <div id="derniere">
              <h1>Les dernieres recettes</h1>
              
-             <c:forEach items='${requestScope.recetteAll}' var='recetteAll'>
+             <c:forEach items='${requestScope.recetteLast}' var='recetteLast'>
                  
                  <div class="recetteDerniere" >
-                 <a href="page_recette.jsp"><img src="https://static.cuisineaz.com/400x320/i136556-gateau-de-grand-maman.jpeg" ></a>
-                 <h3><c:out value="${recetteAll.titre}"/></h3>
+                 <a href="page_recette.jsp"><img src="<c:out value="${recetteLast.image}"/>" ></a>
+                 <h3><c:out value="${recetteLast.titre}"/></h3>
                  </div>
              </c:forEach>
         </div>
