@@ -19,6 +19,7 @@ public class creationRecetteForm {
     private static final String TITRE = "titre";
     private static final String INGREDIENTS = "ingredients";
     private static final String RECETTE = "recette";
+    private static final String IMAGE = "image";
 
     DAORecette daorecette = new DAORecette();
 
@@ -42,10 +43,11 @@ public class creationRecetteForm {
         String titre = getParamValue(request, TITRE);
         String ingred = getParamValue(request, INGREDIENTS);
         String recette = getParamValue(request, RECETTE);
+        String image = getParamValue(request, IMAGE);
 
-        System.out.println("get titre: " + titre);
-        System.out.println("get ingredients: " + ingred);
-        System.out.println("get recette: " + recette);
+//        System.out.println("get titre: " + titre);
+//        System.out.println("get ingredients: " + ingred);
+//        System.out.println("get recette: " + recette);
 
         Recette newRecette = new Recette();
 
@@ -78,8 +80,10 @@ public class creationRecetteForm {
             newRecette.setIngredients(ingred);
             newRecette.setDescription(recette);
             newRecette.setDate(dateDuJour);
+            System.out.println("image: " + image);
+            newRecette.setImage(image);
             daorecette.create(newRecette);
-            System.out.println(newRecette.toString());
+//            System.out.println(newRecette.toString());
             result = "Votre recette est enregistrée!";
         } else if (daorecette.verifyTitle(titre)) {
             setErrors(TITRE, "");

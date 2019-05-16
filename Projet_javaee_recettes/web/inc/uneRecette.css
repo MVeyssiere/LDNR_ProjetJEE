@@ -22,8 +22,7 @@ body {
     text-align: center;
 }
 
-#titres
-{
+#titres{
      display: flex;
      padding: 10px;
     flex-direction: row;
@@ -43,8 +42,8 @@ body {
 
 #dimension1 {
   padding: 20px;
-  background: wheat;
-  border: 2px solid red;
+  background: rgba(207,118,39,0.4);
+  border: 5px solid brown;
   width: 300px;
   min-height: 100px;
   position:relative;
@@ -55,8 +54,8 @@ body {
 
 #dimension2 {
   padding: 30px;
-  background: wheat;
-  border: 2px solid red;
+  background: rgba(207,118,39,0.4);
+  border: 5px solid brown;
   width: 500px;
   height: auto;
   position:relative;
@@ -65,12 +64,11 @@ body {
   text-align: justify;
 }
 
-#adapt
-{
+#adapt{
      display: flex;
-     padding: 10px;
-      
+     padding: 10px;      
 }
+
 .btn-circle.btn-xl {
     width: 100px;
     height: 100px;
@@ -91,8 +89,7 @@ label {
   margin-bottom: 10px;
   float: right;
   position:relative;
-  overflow: hidden; /* les dépassements seront masqués */
-  
+  overflow: hidden; /* les dépassements seront masqués */  
 }
 
 .panel-heading{    
