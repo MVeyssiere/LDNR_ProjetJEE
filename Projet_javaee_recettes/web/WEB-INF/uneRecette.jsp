@@ -39,7 +39,9 @@
                 <p class="text-dark border border-primary bg-light corpsComment">${comm.corps}</p>
             </div>
         </c:forEach>
-
+       
         <label><c:out value = "${recette.date}"/></label>
+        
+         <jsp:include page="footer.jsp"/>
     </body>
 </html>
