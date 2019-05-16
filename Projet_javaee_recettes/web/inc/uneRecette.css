@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : 14 mai 2019, 08:22:33
-    Author     : stagldnr
+    Author     : Amine Semmoud
 */
 
 body {
@@ -25,6 +25,7 @@ p {
   width: 500px;
   height: 400px;
   position:relative;
+  overflow: hidden; /* les dépassements seront masqués */
 }
 
 #titres
@@ -42,31 +43,30 @@ p {
     flex-direction: row;
     justify-content: space-around;
     position:relative;
+    clear: both;
 }
-
 
 #dimension1 {
   padding: 20px;
   background: wheat;
   border: 2px solid red;
-  width: 200px;
-  height: 400px;
+  width: 300px;
+  min-height: 100px;
   position:relative;
+  word-wrap: break-word;
+  overflow: auto;
 }
-
-
 
 #dimension2 {
-  padding: 20px;
+  padding: 30px;
   background: wheat;
   border: 2px solid red;
-  width: 300px;
-  height: 500px;
+  width: 670px;
+  height: auto;
   position:relative;
+  word-wrap: break-word;
+  overflorw: auto;
 }
-
-
-
 
 #adapt
 {
@@ -89,8 +89,11 @@ label {
   background: white;
   border: 2px solid red;
   font: 4px;
-  width: 60px;
+  width: auto;
   height: 20px;
+  margin-bottom: 10px;
   float: right;
   position:relative;
+  overflow: hidden; /* les dépassements seront masqués */
+  
 }

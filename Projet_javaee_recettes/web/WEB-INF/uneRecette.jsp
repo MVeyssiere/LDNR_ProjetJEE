@@ -11,17 +11,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Recette</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">  
-        <link type="text/css" rel="stylesheet" href="inc/recettes.css" />       
+        <link type="text/css" rel="stylesheet" href="inc/uneRecette.css" />       
     </head>
     <body>
         <jsp:include  page="header.jsp"/>
-        <h1><c:out value = "${recette.titre}"/></h1>
+        <h1 class="text-secondary col-md-6 offset-md-5"><c:out value = "${recette.titre}"/></h1>
+        <br/>
         <div id="titres">
-            <h2>Ingrédients</h2>   
-            <h2>Description</h2>   
+            <h2 class="text-secondary col-md-3">Ingrédients</h2>   
+            <h2 class="text-secondary col-md-6">Description</h2>   
         </div>
         <div id="twitchContent">            
-            <p id = "dimension1"> <c:out value = "${recette.ingredients}"/> </p>
+            <p class="text-dark" id = "dimension1"> <c:out value = "${recette.ingredients}"/> </p>
             <p id = "dimension2"> ${recette.description} </p>    
         </div>
         
@@ -30,9 +31,9 @@
            <p>${comm.corps}</p>
         </c:forEach>
 
-        <div id ="adapt">
-            <label> vote oui</label>
-            <label> vote non</label>
+        <div class="panel-heading">
+            <button type="button" class="btn btn-primary">BON</button>
+            <button type="button" class="btn btn-primary">PAS BON</button>
         </div>
         <label><c:out value = "${recette.date}"/></label>
     </body>
