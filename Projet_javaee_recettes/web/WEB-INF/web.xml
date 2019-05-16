@@ -61,6 +61,15 @@
         <url-pattern>/creationRecette</url-pattern>
     </servlet-mapping>
     
+         <servlet>
+        <servlet-name>uneRecette</servlet-name>
+        <servlet-class>servlets.recetteEtCommentaires</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uneRecette</servlet-name>
+        <url-pattern>/uneRecette</url-pattern>
+    </servlet-mapping>
+<!--    
     <servlet>
         <servlet-name>accueil</servlet-name>
         <servlet-class>servlets.RecetteAccueil</servlet-class>
@@ -69,5 +78,5 @@
         <servlet-name>accueil</servlet-name>
         <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
-     
+    -->
 </web-app>

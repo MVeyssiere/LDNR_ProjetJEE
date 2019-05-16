@@ -28,6 +28,18 @@ public class RechercheRecette {
         return recette;
 //        return titre;
     }
+
+    //utilisé avec les commentaires
+    public Recette RecetteParId(HttpServletRequest request) {
+
+        Integer id_recette = Integer.parseInt(getParamValue(request, "id_recette"));
+
+        DAORecette daorecette = new DAORecette();
+        System.out.println(id_recette);
+        Recette recette = daorecette.find(id_recette);
+
+        return recette;
+    }
     
     public List<Recette> ToutesRecette() {
 //        String titre = request.getParameter("titre");
@@ -45,10 +57,8 @@ public class RechercheRecette {
     
     public List<Recette> TopRecette() {
 //        String titre = request.getParameter("titre");
-       
 
         DAORecette daorecette = new DAORecette();
-        
         
         ArrayList<Recette> recette = new ArrayList<>();
         recette = (ArrayList<Recette>) daorecette.findTop();

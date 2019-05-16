@@ -68,7 +68,12 @@
             </fieldset>
             
         </form>
-            <input type=button onclick=window.location.href='accueil.jsp'; value="Visiteur" />
+            
+           <!--<a class="btn btn-warning col-md-3" href="${pageContext.request.contextPath}/connection" role="button">Visiteur</a>-->
+           
+           <form action="${pageContext.request.contextPath}/connection" method="post">
+                <input type="submit" name="visit" value="Visiteur" />
+            </form>
 
 </body>
 </html>

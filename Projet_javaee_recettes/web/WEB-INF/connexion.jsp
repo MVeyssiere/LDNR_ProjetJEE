@@ -32,6 +32,6 @@
                 <p class="success">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
             </c:if> --%>
         </form>
-        <c:import url="../footer.jsp"/>
+        <c:import url="footer.jsp"/>
     </body>
 </html>

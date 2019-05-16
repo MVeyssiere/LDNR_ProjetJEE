@@ -37,7 +37,16 @@ public class ConnectionForm {
         String name = getParamValue(request, NAME);
         String droits = getParamValue(request, DROITS);
 
+
         User user = new User();
+
+        //connexion en tant que visiteur
+        if (request.getParameter("visit") != null) {
+            mail = "visiteur@ici.ici";
+            pwd = "visiteur";
+        }
+
+        //connexion avec login et mdp
 
         try {
             validateEmail(mail);
@@ -58,9 +67,9 @@ public class ConnectionForm {
         } catch (Exception e) {
             setErrors(PASS, e.getMessage());
         }
-        System.out.println("password: " + pwd);
-        System.out.println("password encrypté: " + encryptThisString(pwd));
-        System.out.println("password from db: " + daouser.findFromEmail(mail).getPassword());
+//        System.out.println("password: " + pwd);
+//        System.out.println("password encrypté: " + encryptThisString(pwd));
+//        System.out.println("password from db: " + daouser.findFromEmail(mail).getPassword());
         if (encryptThisString(pwd).matches(daouser.findFromEmail(mail).getPassword())) {
             user.setPassword(pwd);
             user.setName(daouser.findFromEmail(mail).getName());

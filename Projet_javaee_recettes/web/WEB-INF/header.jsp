@@ -8,8 +8,8 @@
     <a class="navbar-brand" href="#">Les meilleures recettes</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav mr-auto">
-                 <li class="nav-item active"><a  class="nav-link" href="/accueil.jsp">Accueil</a></li>
-                 <li class="nav-item"><a  class="nav-link" href="<c:url value='/accueil.jsp'/>">Les recettes</a></li>
+                 <li class="nav-item active"><a  class="nav-link" href="<c:url value='/connection'/>">Accueil</a></li>
+                 <li class="nav-item"><a  class="nav-link" href="<c:url value='/lesrecettes.jsp'/>">Les recettes</a></li>
                  
                 <c:choose>
                      <c:when test="${sessionScope.sessionUtilisateur.droits == 'user'}">
@@ -27,8 +27,8 @@
                             <li class="nav-item"><a  class="nav-link" href="<c:url value='/logout'/>">Déconnexion</a></li>
                      </c:when>
                      <c:otherwise>
-                            <li class="nav-item"><a class="nav-link" href="<c:url value='/inscription'/>">Inscription</a></li>
-                            <li class="nav-item"><a class="nav-link" href="<c:url value='/connection'/>">Connexion</a></li>                         
+                            <li class="nav-item"><a class="nav-link" href="<c:url value='/'/>">Inscription</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<c:url value='/'/>">Connexion</a></li>                         
                      </c:otherwise>
                  </c:choose>
                             
