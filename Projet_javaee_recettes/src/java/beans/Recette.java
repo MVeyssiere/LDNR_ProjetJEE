@@ -13,8 +13,18 @@ public class Recette {
     private Integer votes_negatifs;
     private String ingredients;
     private String description;
+    private String image;
     private Date date;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    
     public Integer getId_recette() {
         return id_recette;
     }
@@ -74,13 +84,14 @@ public class Recette {
     public Recette() {
     }
 
-    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description, Date date) {
+    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description,String image, Date date) {
         this.id_recette = id_recette;
         this.titre = titre;
         this.votes_positifs = votes_positifs;
         this.votes_negatifs = votes_negatifs;
         this.ingredients = ingredients;
         this.description = description;
+        this.image = image;
         this.date = date;
     }
 
@@ -89,6 +100,7 @@ public class Recette {
         this.ingredients = ingredients;
         this.description = description;
         this.date = date;
+        this.image = null;
         this.votes_positifs = 0;
         this.votes_negatifs = 0;
     }
