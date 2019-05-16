@@ -17,6 +17,7 @@ public class ConnectionForm {
     private static final String EMAIL = "email";
     private static final String PASS = "password";
     private static final String NAME = "name";
+    private static final String DROITS = "droits";
 
     private String result;
     private final Map<String, String> errors = new HashMap<>();
@@ -34,8 +35,18 @@ public class ConnectionForm {
         String mail = getParamValue(request, EMAIL);
         String pwd = getParamValue(request, PASS);
         String name = getParamValue(request, NAME);
+        String droits = getParamValue(request, DROITS);
+
 
         User user = new User();
+
+        //connexion en tant que visiteur
+        if (request.getParameter("visit") != null) {
+            mail = "visiteur@ici.ici";
+            pwd = "visiteur";
+        }
+
+        //connexion avec login et mdp
 
         try {
             validateEmail(mail);
@@ -56,12 +67,13 @@ public class ConnectionForm {
         } catch (Exception e) {
             setErrors(PASS, e.getMessage());
         }
-        System.out.println("password: " + pwd);
-        System.out.println("password encrypté: " + encryptThisString(pwd));
-        System.out.println("password from db: " + daouser.findFromEmail(mail).getPassword());
+//        System.out.println("password: " + pwd);
+//        System.out.println("password encrypté: " + encryptThisString(pwd));
+//        System.out.println("password from db: " + daouser.findFromEmail(mail).getPassword());
         if (encryptThisString(pwd).matches(daouser.findFromEmail(mail).getPassword())) {
             user.setPassword(pwd);
             user.setName(daouser.findFromEmail(mail).getName());
+            user.setDroits(daouser.findFromEmail(mail).getDroits());
         } else {
             setErrors(PASS, "Mot de passe incorrect. Veuillez le ressaisir.");
         }

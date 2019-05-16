@@ -141,7 +141,7 @@ public class DAORecette extends DAO<Recette> {
    
     public List<Recette> findTop() {
         ArrayList<Recette> retObj = new ArrayList<>();
-        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        // faut faire attention aux espaces qui doivent entourer le nom de la table
         
         String sql = "SELECT * FROM " + table + " ORDER BY 'votes_positifs' DESC LIMIT 3";
         try {
@@ -168,7 +168,7 @@ public class DAORecette extends DAO<Recette> {
     public Recette findByTitle(String titre) {
         Recette retObj = null;
         // faut faire attention aux espaces qui doivent entouré le nom de la table
-        String sql = "SELECT * FROM recette WHERE titre = ?";
+        String sql = "SELECT * FROM " + table + " WHERE titre = ?";
         System.out.println(sql);
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
