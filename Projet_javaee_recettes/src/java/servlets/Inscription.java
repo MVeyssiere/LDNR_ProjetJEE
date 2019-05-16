@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Inscription extends HttpServlet {
 
     /* Des constantes */
-    public static final String VIEW = "/accueil.jsp";
+    public static final String VIEW = "/WEB-INF/connexion.jsp";
     private static final String ATT_FORM = "form";
     private static final String ATT_USER = "user";
 

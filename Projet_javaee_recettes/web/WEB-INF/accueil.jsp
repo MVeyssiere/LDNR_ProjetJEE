@@ -17,7 +17,7 @@
        <jsp:include page="header.jsp"/>
        
         <div id="meilleur">
-            <h1>Les meilleurs recettes</h1>
+            <h1 class="text-dark">Top 3 de nos recettes</h1>
             <c:forEach items='${requestScope.recetteTop}' var='recetteTop'>
                  <div class="recetteMeilleur" >
                         <a href="${pageContext.request.contextPath}/uneRecette?id_recette=<c:out value="${recetteTop.id_recette}"/>"><img src="<c:out value="${recetteTop.image}"/>" ></a>
@@ -40,5 +40,6 @@
                  </div>
              </c:forEach>
         </div>
+       <jsp:include page="footer.jsp"/>
     </body>
 </html>

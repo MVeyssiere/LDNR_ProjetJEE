@@ -29,6 +29,7 @@ public class RechercheRecette {
 //        return titre;
     }
 
+
     //utilisé avec les commentaires
     public Recette RecetteParId(HttpServletRequest request) {
 

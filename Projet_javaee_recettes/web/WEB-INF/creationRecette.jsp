@@ -51,6 +51,6 @@
         <!--<button type="button" class="btn btn-warning col-md-4 offset-md-4" id="envoyer">Enregistrer</button>-->
     </form>
        
-    <%--<jsp:include page="footer.html"/>--%>
+     <jsp:include page="footer.jsp"/>
     </body>
 </html>
