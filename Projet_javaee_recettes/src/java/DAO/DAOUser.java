@@ -78,10 +78,11 @@ public class DAOUser extends DAO<User> {
         User rtObj = null;
         String sql = "UPDATE " + table + " SET "
                 + "name = ?,"
-                + "email = ?"
-                + "password = ?"
-                + "droits = ?"
+                + " email = ?,"
+                + " password = ?,"
+                + " droits = ?"
                 + " WHERE id_user = ?";
+//        System.out.println("name:" + obj.getName());
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, obj.getName());

@@ -45,6 +45,8 @@ public class ConnectionForm {
             mail = "visiteur@ici.ici";
             pwd = "visiteur";
         }
+        
+        
 
         //connexion avec login et mdp
 
@@ -60,7 +62,8 @@ public class ConnectionForm {
         } else {
             setErrors(EMAIL, "Vous n'êtes pas inscrit. Veuillez vous rendre sur la page d'inscription.");
         }
-
+        
+        
         //System.out.println(daouser.verifyEmail(mail));
         try {
             validatePassword(pwd);
@@ -77,14 +80,29 @@ public class ConnectionForm {
         } else {
             setErrors(PASS, "Mot de passe incorrect. Veuillez le ressaisir.");
         }
+        
+        boolean test = DeleteOr(request,"désinscription");
 
         /* Initialisation du résultat global de la validation. */
-        if (errors.isEmpty()) {
+        if(test == true && errors.isEmpty()){
+            result = "Succès de la désinscription.";
+            
+        }
+        else if (errors.isEmpty()) {
             result = "Succès de la connexion.";
         } else {
             result = "Échec de la connexion.";
         }
         return user;
+    }
+    
+    public DAOUser UpdateDroit (String email){        
+        DAOUser daouser = new DAOUser();
+        User user = daouser.findFromEmail(email);
+
+         user.setDroits("visiteur");
+        daouser.update(user);
+        return daouser;
     }
 
     private static String encryptThisString(String input) {
@@ -110,6 +128,19 @@ public class ConnectionForm {
             throw new RuntimeException(e);
         }
     }
+    
+    public boolean DeleteOr(HttpServletRequest request, String paramKey) {
+        
+        if(request.getParameter("désinscription") != null)
+        { 
+            return true;
+            
+        } else {
+            return false;
+        } 
+    }
+    
+    
 
     // retourne null si le champ est vide ou null, ou sa valeur « trimée » sinon, ce qui permet de simplifier les tests.
     private static String getParamValue(HttpServletRequest request, String paramKey) {
@@ -120,7 +151,7 @@ public class ConnectionForm {
             return value.trim();
         }
     }
-
+    
     // champ email valide
     private void validateEmail(String email) throws Exception {
         if (!email.isEmpty()) {  //si la case mail est remplie
