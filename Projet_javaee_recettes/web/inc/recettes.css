@@ -9,12 +9,13 @@ and open the template in the editor.
 */
 
 body {
-color:black;
-background-color:white;
-background-image:url("ville.jpg");
+  background: url('https://previews.123rf.com/images/seregam/seregam1210/seregam121000065/15585520-arri%C3%A8re-plan-de-recettes-de-cuisine-et-des-%C3%A9pices-sur-table-en-bois.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: black;
 }
-
-
 
 
 p {
@@ -46,7 +47,7 @@ p {
 
 #dimension1 {
   padding: 20px;
-  background: grey;
+  background: wheat;
   border: 2px solid red;
   width: 200px;
   height: 400px;
@@ -57,7 +58,7 @@ p {
 
 #dimension2 {
   padding: 20px;
-  background: grey;
+  background: wheat;
   border: 2px solid red;
   width: 300px;
   height: 500px;
@@ -73,11 +74,22 @@ p {
      padding: 10px;
       
 }
+.btn-circle.btn-xl {
+    width: 100px;
+    height: 100px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
 label {
+  color: black;
   padding: 20px;
-  background: greenyellow;
+  background: white;
   border: 2px solid red;
-  width: 30px;
+  font: 4px;
+  width: 60px;
   height: 20px;
   float: right;
   position:relative;
