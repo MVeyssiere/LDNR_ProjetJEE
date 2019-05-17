@@ -22,7 +22,7 @@
             <h2 class="text-secondary col-md-6">Description</h2>   
         </div>
         <div id="twitchContent">            
-            <p class="text-dark" id = "dimension1"> <c:out value = "${recette.ingredients}"/> </p>
+            <p id = "dimension1"> ${recette.ingredients}" </p>
             <p id = "dimension2"> ${recette.description} </p>    
         </div>
         
@@ -34,8 +34,8 @@
         <h2 class="text-secondary offset-md-2">Commentaires</h2>
         <c:forEach items="${requestScope.commentaire}" var="comm">
             <div class="border border-primary bg-light comments">
-                <p class="text-dark border border-primary bg-light titreComment">id_utilisateur: ${comm.FK_id_user}</p>
-                <p class="text-dark border border-primary bg-light titreComment">${comm.titre}</p>
+                <p class="text-dark border border-primary bg-light titreComment">id_utilisateur: <c:out value = "${comm.FK_id_user}"/></p>
+                <p class="text-dark border border-primary bg-light titreComment"><c:out value = "${comm.titre}"/></p>
                 <p class="text-dark border border-primary bg-light corpsComment">${comm.corps}</p>
             </div>
         </c:forEach>

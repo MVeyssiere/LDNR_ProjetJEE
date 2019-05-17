@@ -17,10 +17,11 @@ import javax.servlet.http.HttpSession;
  */
 public class Connection extends HttpServlet {
 
+    private static final String ATT_BUTTON = "désinscription";
     private static final String ATT_USER = "utilisateur";
     private static final String ATT_FORM = "form";
     private static final String ATT_SESSION_USER = "sessionUtilisateur";
-    private static final String VUE = "/WEB-INF/accueil.jsp";
+    private String VUE = "/WEB-INF/accueil.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,12 +34,29 @@ public class Connection extends HttpServlet {
         ConnectionForm form = new ConnectionForm();
         /* Traitement de la requête et récupération du bean en résultant */
         User user = form.connectUser(req);
+//        User user2 = form.connectUser(req);
+//        user2.setDroits("visiteur");
         /* Récupération de la session depuis la requête */
         HttpSession session = req.getSession();
         /**
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean user
          * à la session, sinon suppression du bean de la session.
          */
+        boolean test = false;
+        
+        test = form.DeleteOr(req, ATT_BUTTON);
+        
+        
+        if(test != true)
+        {
+            VUE = "/WEB-INF/accueil.jsp";
+            
+        }else{
+            VUE = "/formulaire.jsp";
+            form.UpdateDroit(user.getEmail());
+        }
+               
+                
         if (form.getErrors().isEmpty()) {
             session.setAttribute(ATT_SESSION_USER, user);
         } else {
