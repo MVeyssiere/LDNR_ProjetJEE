@@ -56,57 +56,36 @@ public class RechercheRecette {
 //        return titre;
     }
     
-    public DAORecette UpdatePositif(String titre,HttpServletRequest request){    
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    public DAORecette UpdatePositif(String titre, HttpServletRequest request) {
         
         DAORecette daorecette = new DAORecette();
         Recette recette = daorecette.findByTitle(titre);
-//        Integer vote = Integer.parseInt(getParamValue(request, "uneRecette"));
-        if(getParamValue(request, "uneRecette").matches("BON"))
-        {
-            System.out.println("votes positifs: " + recette.getVotes_positifs());
-//            
-//            recette.setVotes_positifs((Integer)recette.getVotes_positifs() + 1);
-//            
-             System.out.println("votes positifs NOW: " + recette.getVotes_positifs());
-                     daorecette.updateVotePlus(recette);
 
-            
+        if (getParamValue(request, "uneRecette").matches("BON")) {
+            daorecette.updateVotePlus(recette);
         }else if(getParamValue(request, "uneRecette").matches("PASBON")){
-                daorecette.updateVoteMoins(recette);
-
+            daorecette.updateVoteMoins(recette);
         }
-//        daorecette.update(recette);
         
         return daorecette;
     }
     
     public List<Recette> TopRecette() {
-//        String titre = request.getParameter("titre");
-
         DAORecette daorecette = new DAORecette();
         
         ArrayList<Recette> recette = new ArrayList<>();
         recette = (ArrayList<Recette>) daorecette.findTop();
 
         return recette;
-//        return titre;
     }
     
     public List<Recette> DerniereRecette() {
-//        String titre = request.getParameter("titre");
-       
-
         DAORecette daorecette = new DAORecette();
-        
-        
         ArrayList<Recette> recette = new ArrayList<>();
         recette = (ArrayList<Recette>) daorecette.findLast();
 
         return recette;
-//        return titre;
     }
-    
     
 
     // retourne null si le champ est vide ou null, ou sa valeur « trimée » sinon, ce qui permet de simplifier les tests.
@@ -129,14 +108,5 @@ public class RechercheRecette {
             return false;
         } 
     }
-//
-//    private void setErrors(String field, String message) {
-//        errors.put(field, message);
-//    }
-//
-//    public Map<String, String> getErrors() {
-//        return errors;
-//    }
-//
 
 }
