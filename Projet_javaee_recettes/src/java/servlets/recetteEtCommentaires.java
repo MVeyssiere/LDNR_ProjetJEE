@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class recetteEtCommentaires extends HttpServlet {
 
-    public static final String VIEW = "/WEB-INF/uneRecette.jsp";
+    public String VIEW = "/WEB-INF/uneRecette.jsp";
+     private static final String ATT_POSITIF = "Positif";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,8 +26,8 @@ public class recetteEtCommentaires extends HttpServlet {
         Recette uneRecette = recette.RecetteParId(req);
         CommentairesForm commentaire = new CommentairesForm();
         List<Commentaire> commentaires = commentaire.CommentaireParRecette(req);
-
-        /* stockage formulaire et bean dans l'objet request*/
+       
+        
         req.setAttribute("recette", uneRecette);
         req.setAttribute("commentaire", commentaires);
 
@@ -35,6 +36,19 @@ public class recetteEtCommentaires extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RechercheRecette recette = new RechercheRecette();
+        
+        Recette uneRecette = recette.RecetteParId(req);
+        CommentairesForm commentaire = new CommentairesForm();
+        List<Commentaire> commentaires = commentaire.CommentaireParRecette(req);
+       
+        
+        req.setAttribute("recette", uneRecette);
+        req.setAttribute("commentaire", commentaires);
+                
+        recette.UpdatePositif(uneRecette.getTitre(),req);              
+       
+        
         this.getServletContext().getRequestDispatcher(VIEW).forward(req, resp);
     }
 
