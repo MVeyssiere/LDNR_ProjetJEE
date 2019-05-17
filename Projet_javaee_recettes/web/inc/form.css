@@ -4,6 +4,18 @@
 */
 
 /* Général ---------------------------- */
+h1{
+    background-color: tan;
+    text-indent: 70px;
+}
+body {
+    background: url('https://previews.123rf.com/images/seregam/seregam1210/seregam121000065/15585520-arri%C3%A8re-plan-de-recettes-de-cuisine-et-des-%C3%A9pices-sur-table-en-bois.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    color: black;
+}
 
 
 body, p, legend, label, input {
