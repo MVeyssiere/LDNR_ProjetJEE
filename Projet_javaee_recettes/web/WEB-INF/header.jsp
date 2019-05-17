@@ -19,8 +19,6 @@
                      </c:otherwise>
                  </c:choose>
                  
-                 <li class="nav-item"><a  class="nav-link" href="#">Contact</a></li>
-                 
                  <c:choose>
                      <c:when test="${!empty sessionScope.sessionUtilisateur}">                    
                             <li class="nav-item text-success m-2">Bonjour ${sessionScope.sessionUtilisateur.name}</li>

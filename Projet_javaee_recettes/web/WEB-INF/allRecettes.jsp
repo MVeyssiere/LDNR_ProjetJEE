@@ -15,6 +15,7 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
+        
         <h1 id="titre">Toutes les recettes</h1>
         <div id = "conteneur">
             <c:forEach items='${requestScope.recettes}' var='recette'>
@@ -24,6 +25,7 @@
                  </div>
              </c:forEach>
         </div>
+        
         <div class="notrefooteur">
         <jsp:include page="footer.jsp"/>
         </div>
