@@ -56,6 +56,31 @@ public class RechercheRecette {
 //        return titre;
     }
     
+    public DAORecette UpdatePositif(String titre,HttpServletRequest request){    
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        
+        DAORecette daorecette = new DAORecette();
+        Recette recette = daorecette.findByTitle(titre);
+//        Integer vote = Integer.parseInt(getParamValue(request, "uneRecette"));
+        if(getParamValue(request, "uneRecette").matches("BON"))
+        {
+            System.out.println("votes positifs: " + recette.getVotes_positifs());
+//            
+//            recette.setVotes_positifs((Integer)recette.getVotes_positifs() + 1);
+//            
+             System.out.println("votes positifs NOW: " + recette.getVotes_positifs());
+                     daorecette.updateVotePlus(recette);
+
+            
+        }else if(getParamValue(request, "uneRecette").matches("PASBON")){
+                daorecette.updateVoteMoins(recette);
+
+        }
+//        daorecette.update(recette);
+        
+        return daorecette;
+    }
+    
     public List<Recette> TopRecette() {
 //        String titre = request.getParameter("titre");
 
@@ -92,6 +117,17 @@ public class RechercheRecette {
         } else {
             return value.trim();
         }
+    }
+    
+    public boolean AjoutOr(HttpServletRequest request, String paramKey) {
+        
+        if(request.getParameter("Positif") != null)
+        { 
+            return true;
+            
+        } else {
+            return false;
+        } 
     }
 //
 //    private void setErrors(String field, String message) {

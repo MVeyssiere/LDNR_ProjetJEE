@@ -25,12 +25,12 @@
             <p id = "dimension1"> ${recette.ingredients}" </p>
             <p id = "dimension2"> ${recette.description} </p>    
         </div>
-        
+         <form  method="post" action="uneRecette?id_recette=${recette.id_recette}">
         <div class="panel-heading">
-            <button type="button" class="btn btn-primary">BON</button>
-            <button type="button" class="btn btn-primary">PAS BON</button>
+            <button type="submit" name="uneRecette" value="BON" class="btn btn-primary"/>BON </button>
+            <button type="submit" name="uneRecette" value="PASBON" class="btn btn-primary">PAS BON</button>
         </div>
-        
+        </form>
         <h2 class="text-secondary offset-md-2">Commentaires</h2>
         <c:forEach items="${requestScope.commentaire}" var="comm">
             <div class="border border-primary bg-light comments">
