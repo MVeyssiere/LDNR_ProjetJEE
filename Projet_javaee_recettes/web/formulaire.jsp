@@ -63,10 +63,10 @@
                 <p class="${(empty form.errors) ? 'success' : 'error'}"> ${form.result} </p>
             </fieldset>            
         </form>
-            
-           <form action="${pageContext.request.contextPath}/connection" method="post">
-                <input type="submit" name="visit" value="Visiteur" />
-            </form>
-
+                        
+        <form action="${pageContext.request.contextPath}/connection" method="post">
+             <input type="submit" name="visit" value="Visiteur" class="btn btn-warning text-dark p-3 font-weight-bold col-md-4" />
+         </form>
+                            
 </body>
 </html>

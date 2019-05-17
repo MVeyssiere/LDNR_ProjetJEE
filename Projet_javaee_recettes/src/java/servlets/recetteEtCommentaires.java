@@ -26,7 +26,6 @@ public class recetteEtCommentaires extends HttpServlet {
         Recette uneRecette = recette.RecetteParId(req);
         CommentairesForm commentaire = new CommentairesForm();
         List<Commentaire> commentaires = commentaire.CommentaireParRecette(req);
-       
         
         req.setAttribute("recette", uneRecette);
         req.setAttribute("commentaire", commentaires);
@@ -41,13 +40,11 @@ public class recetteEtCommentaires extends HttpServlet {
         Recette uneRecette = recette.RecetteParId(req);
         CommentairesForm commentaire = new CommentairesForm();
         List<Commentaire> commentaires = commentaire.CommentaireParRecette(req);
-       
         
         req.setAttribute("recette", uneRecette);
         req.setAttribute("commentaire", commentaires);
                 
-        recette.UpdatePositif(uneRecette.getTitre(),req);              
-       
+        recette.UpdatePositif(uneRecette.getTitre(), req);
         
         this.getServletContext().getRequestDispatcher(VIEW).forward(req, resp);
     }

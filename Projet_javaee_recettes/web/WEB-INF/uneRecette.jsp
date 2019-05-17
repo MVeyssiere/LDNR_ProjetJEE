@@ -16,6 +16,8 @@
     <body>
         <jsp:include  page="header.jsp"/>
         <h1 class="text-secondary col-md-6 offset-md-5"><c:out value = "${recette.titre}"/></h1>
+<%--        <h5> Votes +: <c:out value = "${recette.votes_positifs}"/></h5>
+        <h5> Votes -: <c:out value = "${recette.votes_negatifs}"/></h5>--%>
         <br/>
         <div id="titres">
             <h2 class="text-secondary col-md-3">Ingrédients</h2>   
