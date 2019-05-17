@@ -51,15 +51,16 @@ public class DAORecette extends DAO<Recette> {
     public Recette create(Recette obj) {
 
         Recette rtObj = null;
-        String sql = "INSERT INTO " + table + " (titre, votes_positifs, votes_negatifs, ingredients, description, date)" + " VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO " + table + " (titre, votes_positifs, votes_negatifs, image, ingredients, description, date)" + " VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getTitre());
             pstmt.setInt(2, 0);
             pstmt.setInt(3, 0);
-            pstmt.setString(4, obj.getIngredients());
-            pstmt.setString(5, obj.getDescription());
-            pstmt.setDate(6, (Date) obj.getDate());
+            pstmt.setString(4, obj.getImage());
+            pstmt.setString(5, obj.getIngredients());
+            pstmt.setString(6, obj.getDescription());
+            pstmt.setDate(7, (Date) obj.getDate());
             pstmt.executeUpdate();
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
             if (generatedKeys.first()) {

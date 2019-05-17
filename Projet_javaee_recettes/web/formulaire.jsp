@@ -35,11 +35,6 @@
                 <input type="submit" value="Connexion" name="Connexion" class="noLabel" />
                 <br/><p class="${empty form.errors ? 'success' : 'error'}">${form.result}</p>
             </fieldset>  
-            <%-- Vérification de la présence d'un objet utilisateur en session --%>
-            <%--
-            <c:if test="${!empty sessionScope.sessionUtilisateur}">
-                <p class="success">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
-            </c:if> --%>
         </form>
    
         
@@ -66,12 +61,9 @@
                 <input type="submit" value="Inscription" class="noLabel" />
                 <p>Les champs marqués d'un <span class="mandatory">*</span> sont obligatoires.</p>
                 <p class="${(empty form.errors) ? 'success' : 'error'}"> ${form.result} </p>
-            </fieldset>
-            
+            </fieldset>            
         </form>
             
-           <!--<a class="btn btn-warning col-md-3" href="${pageContext.request.contextPath}/connection" role="button">Visiteur</a>-->
-           
            <form action="${pageContext.request.contextPath}/connection" method="post">
                 <input type="submit" name="visit" value="Visiteur" />
             </form>
