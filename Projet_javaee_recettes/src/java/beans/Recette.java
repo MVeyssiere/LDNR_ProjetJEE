@@ -15,6 +15,7 @@ public class Recette {
     private String description;
     private String image;
     private Date date;
+    private Integer FK_id_user;
 
     public String getImage() {
         return image;
@@ -24,7 +25,6 @@ public class Recette {
         this.image = image;
     }
 
-    
     public Integer getId_recette() {
         return id_recette;
     }
@@ -81,10 +81,18 @@ public class Recette {
         this.date = date;
     }
 
+    public Integer getFK_id_user() {
+        return FK_id_user;
+    }
+
+    public void setFK_id_user(Integer FK_id_user) {
+        this.FK_id_user = FK_id_user;
+    }
+
     public Recette() {
     }
 
-    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description,String image, Date date) {
+    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description, String image, Date date) {
         this.id_recette = id_recette;
         this.titre = titre;
         this.votes_positifs = votes_positifs;
@@ -109,6 +117,16 @@ public class Recette {
         this.titre = titre;
     }
 
-
+    public Recette(Integer id_recette, String titre, Integer votes_positifs, Integer votes_negatifs, String ingredients, String description, String image, Date date, Integer FK_id_user) {
+        this.id_recette = id_recette;
+        this.titre = titre;
+        this.votes_positifs = votes_positifs;
+        this.votes_negatifs = votes_negatifs;
+        this.ingredients = ingredients;
+        this.description = description;
+        this.image = image;
+        this.date = date;
+        this.FK_id_user = FK_id_user;
+    }
 
 }

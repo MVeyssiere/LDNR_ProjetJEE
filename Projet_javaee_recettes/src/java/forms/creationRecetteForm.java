@@ -1,12 +1,17 @@
 package forms;
 
 import DAO.DAORecette;
+import DAO.DAOUser;
 import beans.Recette;
+import beans.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import sun.security.pkcs11.wrapper.Functions;
 
 /**
  * @author Marine V
@@ -20,6 +25,7 @@ public class creationRecetteForm {
     private static final String INGREDIENTS = "ingredients";
     private static final String RECETTE = "recette";
     private static final String IMAGE = "image";
+//    private static final String FK_USER = "id_user";
 
     DAORecette daorecette = new DAORecette();
 
@@ -44,10 +50,6 @@ public class creationRecetteForm {
         String ingred = getParamValue(request, INGREDIENTS);
         String recette = getParamValue(request, RECETTE);
         String image = getParamValue(request, IMAGE);
-
-//        System.out.println("get titre: " + titre);
-//        System.out.println("get ingredients: " + ingred);
-//        System.out.println("get recette: " + recette);
 
         Recette newRecette = new Recette();
 
@@ -74,16 +76,30 @@ public class creationRecetteForm {
         java.sql.Date dateDuJour = new java.sql.Date(utilDate.getTime());
         System.out.println("date du jour: " + dateDuJour);
 
+        // récupérer l'id_user dans la session en cours
+        HttpSession session = request.getSession(false);
+
+        User currentUser = (User) session.getAttribute("sessionUtilisateur");
+        System.out.println("session : " + session.getAttribute("sessionUtilisateur"));
+
+        // la sessionUtilisateur n'a pas l'id du user mais a l'email
+        // donc il faut retrouver l'id créé dans la bdd via l'email du user connecté
+        DAOUser daouser = new DAOUser();
+        User myUser = daouser.findFromEmail(currentUser.getEmail());
+
+        //System.out.println("user id: " + myUser.getId_user());
+        //id_user retrouvé utilisé pour renseigner le user qui créé une recette
+        Integer fk_id_user = myUser.getId_user();
+
         /* Initialisation du résultat global de la validation. */
         if (errors.isEmpty() && !daorecette.verifyTitle(titre)) {
             newRecette.setTitre(titre);
             newRecette.setIngredients(ingred);
             newRecette.setDescription(recette);
             newRecette.setDate(dateDuJour);
-            System.out.println("image: " + image);
+            newRecette.setFK_id_user(fk_id_user);
             newRecette.setImage(image);
             daorecette.create(newRecette);
-//            System.out.println(newRecette.toString());
             result = "Votre recette est enregistrée!";
         } else if (daorecette.verifyTitle(titre)) {
             setErrors(TITRE, "");
@@ -94,7 +110,6 @@ public class creationRecetteForm {
             result = "Une erreur est survenue à l'enregistrement.";
         }
         return newRecette;
-
     }
 
     // retourne null si le champ est vide ou null, ou sa valeur « trimée » sinon, ce qui permet de simplifier les tests.

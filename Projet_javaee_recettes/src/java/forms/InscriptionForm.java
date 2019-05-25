@@ -61,10 +61,8 @@ public final class InscriptionForm {
         if (!password.isEmpty() && !confirm.isEmpty()) {
             if (!password.equals(confirm)) {
                 throw new Exception("Les mots de passe entrés sont différents. Merci de les saisir à nouveau.");
-            } else {
-                if (!password.matches("^.{3,}$")) {
-                    throw new Exception("Votre mot de passe doit contenir au moins 3 lettres.");
-                }
+            } else if (!password.matches("^.{3,}$")) {
+                throw new Exception("Votre mot de passe doit contenir au moins 3 lettres.");
             }
         } else {
             if (password.isEmpty()) {
