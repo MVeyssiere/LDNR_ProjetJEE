@@ -26,7 +26,9 @@ public class DAOVoteRecette extends DAO<VoteRecette> {
 
         VoteRecette retObj = null;
         // faut faire attention aux espaces qui doivent entouré le nom de la table
-        String sql = "SELECT * FROM " + table + " WHERE FK_id_recette=?";
+        String sql = "SELECT * FROM vote_recette JOIN recette, user ON recette.id_recette = vote_recette.FK_id_recette "
+                + "AND user.id_user = vote_recette.FK_id_user "
+                + "WHERE FK_id_recette=?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             // permet de trouver dans la base de données tous les lignes ayant l'id
@@ -70,7 +72,25 @@ public class DAOVoteRecette extends DAO<VoteRecette> {
 
     @Override
     public VoteRecette find(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        VoteRecette retObj = null;
+        // faut faire attention aux espaces qui doivent entouré le nom de la table
+        String sql = "SELECT * FROM vote_recette JOIN recette, user ON recette.id_recette = vote_recette.FK_id_recette AND user.id_user = vote_recette.FK_id_user";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            // permet de trouver dans la base de données tous les lignes ayant l'id
+            pstmt.setInt(1, id);
+            // cette ensemble permet de récuperer tous les objets ayant le bon pstmt
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.first()) {
+                retObj = new VoteRecette(id,
+                        rs.getInt("FK_id_recette")
+                );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAORecette.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retObj;
     }
 
     @Override

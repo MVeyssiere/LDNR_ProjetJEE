@@ -27,8 +27,9 @@
             <p id = "dimension1"> ${recette.ingredients}" </p>
             <p id = "dimension2"> ${recette.description} </p>    
         </div>
-         <form  method="post" action="uneRecette?id_recette=${recette.id_recette}">
-        <div class="panel-heading">
+            <form  method="post" action="uneRecette?id_recette=${recette.id_recette}">
+                <%--               <div class="${(empty form.errors) ? 'p-3 mb-2 bg-success text-white' : 'p-3 mb-2 bg-danger text-white'}"> ${form.result} </div> --%>
+                <div class="panel-heading">
             <button type="submit" name="uneRecette" value="BON" class="btn btn-primary"/>BON </button>
             <button type="submit" name="uneRecette" value="PASBON" class="btn btn-primary">PAS BON</button>
         </div>
